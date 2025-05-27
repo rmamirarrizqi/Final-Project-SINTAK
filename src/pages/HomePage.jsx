@@ -1,9 +1,10 @@
 import React from "react";
+import NavBar from "./NavBar";
 
 function HomePage() {
   return (
     <>
-      <h1>ini HomePage</h1>
+      <NavBar />
     </>
   );
 }
