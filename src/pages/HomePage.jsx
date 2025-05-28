@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 function HomePage() {
   return (
@@ -10,6 +11,7 @@ function HomePage() {
       <Hero />
       <OperatingHours />
       <ReviewsAndRatings />
+      <Footer />
     </>
   );
 }

@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useMemo } from "react"
-import NavBar from "./NavBar"
+import { useState, useEffect, useMemo } from "react";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 function GalleryPage() {
   return (
@@ -11,20 +12,21 @@ function GalleryPage() {
       <PhotoGallery />
       <VideoSection />
       <InstagramFeed />
+      <Footer />
     </>
-  )
+  );
 }
 
 function GalleryHero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const floatingElements = useMemo(() => {
     return [...Array(10)].map((_, i) => ({
@@ -33,8 +35,8 @@ function GalleryHero() {
       top: `${Math.random() * 100}%`,
       delay: `${Math.random() * 3}s`,
       duration: `${4 + Math.random() * 2}s`,
-    }))
-  }, [])
+    }));
+  }, []);
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
@@ -64,7 +66,11 @@ function GalleryHero() {
               animationDelay: element.delay,
             }}
           >
-            <svg className="w-8 h-8 text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
+            <svg
+              className="w-8 h-8 text-indigo-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
               <path
                 fillRule="evenodd"
                 d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
@@ -106,7 +112,9 @@ function GalleryHero() {
               Gallery
             </span>
             <br />
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">SumSkuy</span>
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              SumSkuy
+            </span>
           </h1>
 
           <div className="w-32 h-2 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 mx-auto mb-8 rounded-full"></div>
@@ -114,13 +122,16 @@ function GalleryHero() {
           <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-light max-w-4xl mx-auto mb-12">
             Jelajahi koleksi foto dan video yang menampilkan{" "}
             <span className="font-semibold text-indigo-600">kelezatan</span> dan{" "}
-            <span className="font-semibold text-purple-600">keindahan</span> dimsum SumSkuy
+            <span className="font-semibold text-purple-600">keindahan</span>{" "}
+            dimsum SumSkuy
           </p>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">500+</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-2">
+                500+
+              </div>
               <div className="text-gray-600 font-medium">Photos</div>
             </div>
             <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
@@ -141,7 +152,8 @@ function GalleryHero() {
 
       <style jsx>{`
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0) rotate(0deg);
           }
           50% {
@@ -150,13 +162,13 @@ function GalleryHero() {
         }
       `}</style>
     </section>
-  )
+  );
 }
 
 function PhotoGallery() {
-  const [selectedCategory, setSelectedCategory] = useState("all")
-  const [lightboxImage, setLightboxImage] = useState(null)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [lightboxImage, setLightboxImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const categories = [
     { id: "all", label: "Semua", icon: "🖼️" },
@@ -164,7 +176,7 @@ function PhotoGallery() {
     { id: "process", label: "Proses", icon: "👨‍🍳" },
     { id: "restaurant", label: "Restaurant", icon: "🏪" },
     { id: "events", label: "Events", icon: "🎉" },
-  ]
+  ];
 
   const galleryImages = [
     {
@@ -186,7 +198,8 @@ function PhotoGallery() {
       src: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=600&fit=crop",
       category: "process",
       title: "Proses Pembuatan",
-      description: "Chef berpengalaman membuat dimsum dengan teknik tradisional",
+      description:
+        "Chef berpengalaman membuat dimsum dengan teknik tradisional",
     },
     {
       id: 4,
@@ -221,7 +234,7 @@ function PhotoGallery() {
       src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=600&fit=crop",
       category: "process",
       title: "Steam Process",
-      description: "Proses pengukusan dimsum dengan steam tradisional",
+      description: "Proses pengukusan dimsum den`gan steam tradisional",
     },
     {
       id: 9,
@@ -251,31 +264,36 @@ function PhotoGallery() {
       title: "Cozy Atmosphere",
       description: "Suasana hangat dan nyaman untuk bersantai",
     },
-  ]
+  ];
 
   const filteredImages =
-    selectedCategory === "all" ? galleryImages : galleryImages.filter((img) => img.category === selectedCategory)
+    selectedCategory === "all"
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === selectedCategory);
 
   const openLightbox = (image, index) => {
-    setLightboxImage(image)
-    setCurrentImageIndex(index)
-  }
+    setLightboxImage(image);
+    setCurrentImageIndex(index);
+  };
 
   const closeLightbox = () => {
-    setLightboxImage(null)
-  }
+    setLightboxImage(null);
+  };
 
   const nextImage = () => {
-    const nextIndex = (currentImageIndex + 1) % filteredImages.length
-    setCurrentImageIndex(nextIndex)
-    setLightboxImage(filteredImages[nextIndex])
-  }
+    const nextIndex = (currentImageIndex + 1) % filteredImages.length;
+    setCurrentImageIndex(nextIndex);
+    setLightboxImage(filteredImages[nextIndex]);
+  };
 
   const prevImage = () => {
-    const prevIndex = currentImageIndex === 0 ? filteredImages.length - 1 : currentImageIndex - 1
-    setCurrentImageIndex(prevIndex)
-    setLightboxImage(filteredImages[prevIndex])
-  }
+    const prevIndex =
+      currentImageIndex === 0
+        ? filteredImages.length - 1
+        : currentImageIndex - 1;
+    setCurrentImageIndex(prevIndex);
+    setLightboxImage(filteredImages[prevIndex]);
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50 relative overflow-hidden">
@@ -295,16 +313,21 @@ function PhotoGallery() {
 
           <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
             Koleksi{" "}
-            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Foto</span>
+            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Foto
+            </span>
             <br />
             Terbaik{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Kami</span>
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Kami
+            </span>
           </h2>
 
           <div className="w-32 h-2 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 mx-auto mb-6 rounded-full"></div>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Setiap foto menceritakan kisah kelezatan dan dedikasi kami dalam menyajikan dimsum terbaik
+            Setiap foto menceritakan kisah kelezatan dan dedikasi kami dalam
+            menyajikan dimsum terbaik
           </p>
         </div>
 
@@ -345,7 +368,12 @@ function PhotoGallery() {
                 {/* Overlay Icons */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-8 h-8 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -368,7 +396,9 @@ function PhotoGallery() {
                 <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
                   {image.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{image.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {image.description}
+                </p>
               </div>
             </div>
           ))}
@@ -391,8 +421,18 @@ function PhotoGallery() {
               onClick={closeLightbox}
               className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
 
@@ -401,8 +441,18 @@ function PhotoGallery() {
               onClick={prevImage}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-colors"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
 
@@ -410,8 +460,18 @@ function PhotoGallery() {
               onClick={nextImage}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-colors"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
 
@@ -431,25 +491,28 @@ function PhotoGallery() {
         </div>
       )}
     </section>
-  )
+  );
 }
 
 function VideoSection() {
-  const [selectedVideo, setSelectedVideo] = useState(null)
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   const videos = [
     {
       id: 1,
-      thumbnail: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=300&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=300&fit=crop",
       title: "Proses Pembuatan Dimsum",
-      description: "Lihat bagaimana chef kami membuat dimsum dengan teknik tradisional",
+      description:
+        "Lihat bagaimana chef kami membuat dimsum dengan teknik tradisional",
       duration: "3:45",
       category: "Behind the Scenes",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Example video URL
     },
     {
       id: 2,
-      thumbnail: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&h=300&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&h=300&fit=crop",
       title: "Menu Favorit Pelanggan",
       description: "Review menu-menu favorit dari pelanggan setia SumSkuy",
       duration: "2:30",
@@ -458,7 +521,8 @@ function VideoSection() {
     },
     {
       id: 3,
-      thumbnail: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop",
       title: "Grand Opening Ceremony",
       description: "Momen bersejarah pembukaan cabang baru SumSkuy",
       duration: "5:20",
@@ -467,14 +531,15 @@ function VideoSection() {
     },
     {
       id: 4,
-      thumbnail: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop",
       title: "Customer Testimonials",
       description: "Testimoni langsung dari pelanggan yang puas",
       duration: "4:15",
       category: "Testimonials",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
-  ]
+  ];
 
   return (
     <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 relative overflow-hidden">
@@ -490,16 +555,20 @@ function VideoSection() {
 
           <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
             Video{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Stories</span>
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Stories
+            </span>
             <br />
-            <span className="bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">SumSkuy</span>
+            <span className="bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">
+              SumSkuy
+            </span>
           </h2>
 
           <div className="w-32 h-2 bg-gradient-to-r from-purple-400 via-pink-500 to-rose-500 mx-auto mb-6 rounded-full"></div>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Saksikan perjalanan kuliner kami melalui video-video menarik yang menampilkan proses, cerita, dan momen
-            berharga
+            Saksikan perjalanan kuliner kami melalui video-video menarik yang
+            menampilkan proses, cerita, dan momen berharga
           </p>
         </div>
 
@@ -521,7 +590,11 @@ function VideoSection() {
                 {/* Play Button Overlay */}
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="bg-white/20 backdrop-blur-sm rounded-full p-6 transform group-hover:scale-110 transition-transform duration-300">
-                    <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <svg
+                      className="w-12 h-12 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
                       <path
                         fillRule="evenodd"
                         d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
@@ -533,7 +606,9 @@ function VideoSection() {
 
                 {/* Duration Badge */}
                 <div className="absolute bottom-3 right-3">
-                  <span className="px-2 py-1 bg-black/70 text-white text-xs font-bold rounded">{video.duration}</span>
+                  <span className="px-2 py-1 bg-black/70 text-white text-xs font-bold rounded">
+                    {video.duration}
+                  </span>
                 </div>
 
                 {/* Category Badge */}
@@ -548,7 +623,9 @@ function VideoSection() {
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
                   {video.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{video.description}</p>
+                <p className="text-gray-600 leading-relaxed">
+                  {video.description}
+                </p>
               </div>
             </div>
           ))}
@@ -564,8 +641,18 @@ function VideoSection() {
               onClick={() => setSelectedVideo(null)}
               className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
 
@@ -582,7 +669,9 @@ function VideoSection() {
                 ></iframe>
               </div>
               <div className="p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">{selectedVideo.title}</h3>
+                <h3 className="text-2xl font-bold mb-2">
+                  {selectedVideo.title}
+                </h3>
                 <p className="text-gray-300">{selectedVideo.description}</p>
               </div>
             </div>
@@ -590,54 +679,60 @@ function VideoSection() {
         </div>
       )}
     </section>
-  )
+  );
 }
 
 function InstagramFeed() {
   const instagramPosts = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300&h=300&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300&h=300&fit=crop",
       likes: 245,
       comments: 18,
       caption: "Fresh dimsum pagi ini! 🥟✨ #SumSkuy #FreshDimsum",
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=300&h=300&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=300&h=300&fit=crop",
       likes: 189,
       comments: 12,
       caption: "Behind the scenes: Chef sedang membuat hakao special 👨‍🍳",
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=300&h=300&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=300&h=300&fit=crop",
       likes: 312,
       comments: 25,
       caption: "Siomay ikan favorit pelanggan! Sudah coba belum? 🐟",
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=300&h=300&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=300&h=300&fit=crop",
       likes: 156,
       comments: 8,
       caption: "Suasana cozy di restaurant kami 🏪💕",
     },
     {
       id: 5,
-      image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=300&h=300&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=300&h=300&fit=crop",
       likes: 278,
       comments: 21,
       caption: "Lumpia shanghai crispy yang selalu sold out! 🔥",
     },
     {
       id: 6,
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&h=300&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&h=300&fit=crop",
       likes: 203,
       comments: 15,
       caption: "Happy customers = happy us! 😊 Thank you for the love",
     },
-  ]
+  ];
 
   return (
     <section className="py-20 bg-gradient-to-br from-rose-50 via-orange-50 to-amber-50 relative overflow-hidden">
@@ -653,15 +748,20 @@ function InstagramFeed() {
 
           <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
             Follow{" "}
-            <span className="bg-gradient-to-r from-rose-600 to-orange-600 bg-clip-text text-transparent">Our</span>
+            <span className="bg-gradient-to-r from-rose-600 to-orange-600 bg-clip-text text-transparent">
+              Our
+            </span>
             <br />
-            <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">Journey</span>
+            <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
+              Journey
+            </span>
           </h2>
 
           <div className="w-32 h-2 bg-gradient-to-r from-rose-400 via-orange-500 to-amber-500 mx-auto mb-6 rounded-full"></div>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Ikuti perjalanan kuliner kami di Instagram dan jangan lewatkan update terbaru dari SumSkuy
+            Ikuti perjalanan kuliner kami di Instagram dan jangan lewatkan
+            update terbaru dari SumSkuy
           </p>
 
           <a
@@ -696,17 +796,28 @@ function InstagramFeed() {
                   <div className="text-white text-center">
                     <div className="flex items-center justify-center gap-4 mb-2">
                       <div className="flex items-center gap-1">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <svg
+                          className="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
                           <path
                             fillRule="evenodd"
                             d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
                             clipRule="evenodd"
                           />
                         </svg>
-                        <span className="text-sm font-semibold">{post.likes}</span>
+                        <span className="text-sm font-semibold">
+                          {post.likes}
+                        </span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -714,7 +825,9 @@ function InstagramFeed() {
                             d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                           />
                         </svg>
-                        <span className="text-sm font-semibold">{post.comments}</span>
+                        <span className="text-sm font-semibold">
+                          {post.comments}
+                        </span>
                       </div>
                     </div>
                     <p className="text-xs px-2 line-clamp-2">{post.caption}</p>
@@ -726,7 +839,7 @@ function InstagramFeed() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default GalleryPage
+export default GalleryPage;
