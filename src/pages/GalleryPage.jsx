@@ -161,7 +161,7 @@ function PhotoGallery() {
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=600&h=400&fit=crop",
+      src: "/Gallery/Hakao Udang.png",
       category: "dimsum",
       title: "Hakao Udang Premium",
       description: "Hakao dengan isian udang segar dan kulit transparan",
@@ -218,7 +218,7 @@ function PhotoGallery() {
     },
     {
       id: 10,
-      src: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=400&fit=crop",
+      src: "/Gallery/Dimsum Platter.png",
       category: "dimsum",
       title: "Dim Sum Platter",
       description: "Koleksi berbagai jenis dimsum dalam satu sajian",
@@ -676,7 +676,7 @@ function InstagramFeed() {
     {
       id: 3,
       image:
-        "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=300&h=300&fit=crop",
+        "/Gallery/DimsumEstetik.jpeg",
       likes: 312,
       comments: 25,
       caption: "Siomay ikan favorit pelanggan! Sudah coba belum? 🐟",
