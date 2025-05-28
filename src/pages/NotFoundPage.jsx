@@ -10,7 +10,7 @@ function NotFoundPage() {
       <div className="flex flex-col justify-center items-center h-screen text-3xl">
         <TfiFaceSad />
         <h1 className="mt-5">404 NOT FOUND</h1>
-        <Link  to="/">
+        <Link to="/">
           <button className="btn btn-outline mt-5">Go Back</button>
         </Link>
       </div>
