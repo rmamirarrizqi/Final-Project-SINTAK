@@ -334,7 +334,7 @@ function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden bg-gradient-to-r from-red-50 to-amber-50">
+    <section className="p-50 relative h-screen overflow-hidden bg-gradient-to-r from-red-50 to-amber-50 ">
       {/* Background dimsum animasi */}
       <div className="absolute inset-0 z-0 opacity-20">
         {floatingDimsumStyles.map((style, i) => (
@@ -430,7 +430,7 @@ function Hero() {
             </div>
 
             {/* Special offer badge */}
-            <div className="mt-12 bg-gradient-to-r from-amber-400 to-amber-600 text-white p-4 rounded-lg shadow-lg max-w-md transform rotate-1">
+            <div className="mt-12 bg-gradient-to-r from-amber-400 to-amber-600 text-white p-4 rounded-lg shadow-lg max-w-md transform ">
               <p className="font-bold text-xl">Special Offer!</p>
               <p className="text-lg">Diskon 20% untuk pembelian pertama Anda</p>
             </div>
