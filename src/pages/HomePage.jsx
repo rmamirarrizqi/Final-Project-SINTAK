@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useMemo } from "react"
-import NavBar from "./NavBar"
+import { useState, useEffect, useMemo } from "react";
+import NavBar from "./NavBar";
 
 function HomePage() {
   return (
@@ -11,55 +11,59 @@ function HomePage() {
       <OperatingHours />
       <ReviewsAndRatings />
     </>
-  )
+  );
 }
 
 function Hero() {
-  const [currentImage, setCurrentImage] = useState(0)
-  const [title, setTitle] = useState("")
-  const [isDeleting, setIsDeleting] = useState(false)
-  const [loopNum, setLoopNum] = useState(0)
-  const [typingSpeed, setTypingSpeed] = useState(150)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [currentImage, setCurrentImage] = useState(0);
+  const [title, setTitle] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  const images = ["/hero image slider one.jpg", "/hero image slider two.jpg"]
-  const texts = ["Dimsum", "SumSkuy"]
+  const images = ["/hero image slider one.jpg", "/hero image slider two.jpg"];
+  const texts = ["Dimsum", "SumSkuy"];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const handleTyping = () => {
-      const i = loopNum % texts.length
-      const fullText = texts[i]
+      const i = loopNum % texts.length;
+      const fullText = texts[i];
 
-      setTitle(isDeleting ? fullText.substring(0, title.length - 1) : fullText.substring(0, title.length + 1))
+      setTitle(
+        isDeleting
+          ? fullText.substring(0, title.length - 1)
+          : fullText.substring(0, title.length + 1)
+      );
 
-      setTypingSpeed(isDeleting ? 75 : 150)
+      setTypingSpeed(isDeleting ? 75 : 150);
 
       if (!isDeleting && title === fullText) {
-        setTimeout(() => setIsDeleting(true), 2000)
+        setTimeout(() => setIsDeleting(true), 2000);
       } else if (isDeleting && title === "") {
-        setIsDeleting(false)
-        setLoopNum(loopNum + 1)
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
       }
-    }
+    };
 
-    const timer = setTimeout(handleTyping, typingSpeed)
-    return () => clearTimeout(timer)
-  }, [title, isDeleting, loopNum, typingSpeed, texts])
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [title, isDeleting, loopNum, typingSpeed, texts]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const floatingElements = useMemo(() => {
     return [...Array(15)].map((_, i) => ({
@@ -69,8 +73,8 @@ function Hero() {
       delay: `${Math.random() * 5}s`,
       duration: `${6 + Math.random() * 4}s`,
       size: `${20 + Math.random() * 30}px`,
-    }))
-  }, [])
+    }));
+  }, []);
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
@@ -148,14 +152,23 @@ function Hero() {
 
                   {/* Floating Badges */}
                   <div className="absolute -top-4 -right-4 bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold py-3 px-6 rounded-full shadow-lg transform rotate-12 animate-bounce">
-                    <svg className="w-5 h-5 inline mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg
+                      className="w-5 h-5 inline mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                     Hot!
                   </div>
 
                   <div className="absolute -bottom-4 -left-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold py-3 px-6 rounded-full shadow-lg transform -rotate-12 animate-pulse">
-                    <svg className="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-5 h-5 inline mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -170,7 +183,9 @@ function Hero() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-4 mt-8">
                   <div className="text-center bg-white/30 backdrop-blur-sm rounded-xl p-3 border border-white/20">
-                    <div className="text-2xl font-bold text-amber-600">500+</div>
+                    <div className="text-2xl font-bold text-amber-600">
+                      500+
+                    </div>
                     <div className="text-sm text-gray-600">Happy Customers</div>
                   </div>
                   <div className="text-center bg-white/30 backdrop-blur-sm rounded-xl p-3 border border-white/20">
@@ -178,7 +193,9 @@ function Hero() {
                     <div className="text-sm text-gray-600">Rating</div>
                   </div>
                   <div className="text-center bg-white/30 backdrop-blur-sm rounded-xl p-3 border border-white/20">
-                    <div className="text-2xl font-bold text-green-600">24/7</div>
+                    <div className="text-2xl font-bold text-green-600">
+                      24/7
+                    </div>
                     <div className="text-sm text-gray-600">Available</div>
                   </div>
                 </div>
@@ -191,7 +208,11 @@ function Hero() {
             <div className="max-w-xl">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-amber-200">
-                <svg className="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  className="w-4 h-4 text-red-500"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path
                     fillRule="evenodd"
                     d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
@@ -218,13 +239,19 @@ function Hero() {
                       {title}
                     </span>
                   )}
-                  <span className="border-r-4 border-amber-600 ml-2 animate-pulse">&nbsp;</span>
+                  <span className="border-r-4 border-amber-600 ml-2 animate-pulse">
+                    &nbsp;
+                  </span>
                 </h1>
 
                 <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-light">
-                  Kelezatan <span className="font-semibold text-amber-600">autentik</span> dalam setiap gigitan.
+                  Kelezatan{" "}
+                  <span className="font-semibold text-amber-600">autentik</span>{" "}
+                  dalam setiap gigitan.
                   <br />
-                  Dibuat dengan <span className="font-semibold text-red-600">cinta</span> dan resep turun temurun.
+                  Dibuat dengan{" "}
+                  <span className="font-semibold text-red-600">cinta</span> dan
+                  resep turun temurun.
                 </p>
               </div>
 
@@ -233,7 +260,11 @@ function Hero() {
                 <button className="group relative bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl overflow-hidden">
                   <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                   <span className="relative flex items-center justify-center gap-2">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
                       <path
                         fillRule="evenodd"
                         d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
@@ -247,14 +278,24 @@ function Hero() {
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
                     </svg>
                   </span>
                 </button>
 
                 <button className="group border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg">
                   <span className="flex items-center justify-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -272,13 +313,21 @@ function Hero() {
                 <div className="bg-white rounded-xl p-6">
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-red-500 rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <svg
+                        className="w-8 h-8 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="font-bold text-xl text-gray-900">Special Offer!</p>
-                      <p className="text-lg text-gray-600">Diskon 20% untuk pembelian pertama Anda</p>
+                      <p className="font-bold text-xl text-gray-900">
+                        Special Offer!
+                      </p>
+                      <p className="text-lg text-gray-600">
+                        Diskon 20% untuk pembelian pertama Anda
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -290,7 +339,8 @@ function Hero() {
 
       <style jsx>{`
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0) rotate(0deg);
           }
           33% {
@@ -302,7 +352,7 @@ function Hero() {
         }
       `}</style>
     </section>
-  )
+  );
 }
 
 function OperatingHours() {
@@ -314,25 +364,25 @@ function OperatingHours() {
     { day: "Jumat", hours: "09:00 - 22:00", icon: "🌆" },
     { day: "Sabtu", hours: "08:00 - 22:00", icon: "🎉" },
     { day: "Minggu", hours: "08:00 - 22:00", icon: "🎊" },
-  ]
+  ];
 
-  const [isOpen, setIsOpen] = useState(true)
-  const [currentTime, setCurrentTime] = useState(new Date())
+  const [isOpen, setIsOpen] = useState(true);
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTime(new Date())
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [])
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const formatTime = (date) => {
     return date.toLocaleTimeString("id-ID", {
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
-    })
-  }
+    });
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
@@ -346,7 +396,12 @@ function OperatingHours() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -359,16 +414,21 @@ function OperatingHours() {
 
           <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
             Selalu{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Siap</span>
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Siap
+            </span>
             <br />
             Melayani{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Anda</span>
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Anda
+            </span>
           </h2>
 
           <div className="w-32 h-2 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mx-auto mb-6 rounded-full"></div>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Kami berkomitmen memberikan pelayanan terbaik dengan jam operasional yang fleksibel untuk kenyamanan Anda
+            Kami berkomitmen memberikan pelayanan terbaik dengan jam operasional
+            yang fleksibel untuk kenyamanan Anda
           </p>
         </div>
 
@@ -385,7 +445,11 @@ function OperatingHours() {
                         : "bg-gradient-to-br from-red-400 to-pink-500"
                     } shadow-lg`}
                   >
-                    <div className={`w-6 h-6 rounded-full ${isOpen ? "bg-white" : "bg-white"} animate-pulse`}></div>
+                    <div
+                      className={`w-6 h-6 rounded-full ${
+                        isOpen ? "bg-white" : "bg-white"
+                      } animate-pulse`}
+                    ></div>
                   </div>
 
                   <h3 className="text-2xl font-bold mb-2">
@@ -398,7 +462,9 @@ function OperatingHours() {
 
                   <div className="bg-gray-100 rounded-2xl p-4 mb-6">
                     <p className="text-sm text-gray-500 mb-1">Waktu Sekarang</p>
-                    <p className="text-2xl font-mono font-bold text-gray-800">{formatTime(currentTime)}</p>
+                    <p className="text-2xl font-mono font-bold text-gray-800">
+                      {formatTime(currentTime)}
+                    </p>
                   </div>
 
                   <button
@@ -419,7 +485,12 @@ function OperatingHours() {
               <div className="bg-white/60 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl overflow-hidden">
                 <div className="p-6 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
                   <h3 className="text-2xl font-bold flex items-center gap-3">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-8 h-8"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -433,20 +504,28 @@ function OperatingHours() {
 
                 <div className="divide-y divide-gray-100">
                   {operatingHours.map((item, index) => {
-                    const today = new Date()
-                    const isToday = (today.getDay() === 0 && index === 6) || today.getDay() - 1 === index
+                    const today = new Date();
+                    const isToday =
+                      (today.getDay() === 0 && index === 6) ||
+                      today.getDay() - 1 === index;
 
                     return (
                       <div
                         key={index}
                         className={`flex items-center justify-between p-6 transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 ${
-                          isToday ? "bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400" : ""
+                          isToday
+                            ? "bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400"
+                            : ""
                         }`}
                       >
                         <div className="flex items-center gap-4">
                           <div className="text-3xl">{item.icon}</div>
                           <div>
-                            <span className={`text-lg font-semibold ${isToday ? "text-amber-800" : "text-gray-700"}`}>
+                            <span
+                              className={`text-lg font-semibold ${
+                                isToday ? "text-amber-800" : "text-gray-700"
+                              }`}
+                            >
                               {item.day}
                             </span>
                             {isToday && (
@@ -461,21 +540,32 @@ function OperatingHours() {
                         </div>
 
                         <div className="text-right">
-                          <span className={`text-xl font-bold ${isToday ? "text-amber-600" : "text-gray-600"}`}>
+                          <span
+                            className={`text-xl font-bold ${
+                              isToday ? "text-amber-600" : "text-gray-600"
+                            }`}
+                          >
                             {item.hours}
                           </span>
-                          {index >= 4 && <div className="text-sm text-green-600 font-medium">Extended Hours</div>}
+                          {index >= 4 && (
+                            <div className="text-sm text-green-600 font-medium">
+                              Extended Hours
+                            </div>
+                          )}
                         </div>
                       </div>
-                    )
+                    );
                   })}
                 </div>
 
                 <div className="p-6 bg-gradient-to-r from-gray-50 to-blue-50 text-center border-t">
                   <p className="text-sm text-gray-600 mb-2">
-                    💡 <strong>Catatan:</strong> Jam operasional dapat berubah pada hari libur nasional
+                    💡 <strong>Catatan:</strong> Jam operasional dapat berubah
+                    pada hari libur nasional
                   </p>
-                  <p className="text-xs text-gray-500">Untuk informasi terkini, silakan hubungi kami langsung</p>
+                  <p className="text-xs text-gray-500">
+                    Untuk informasi terkini, silakan hubungi kami langsung
+                  </p>
                 </div>
               </div>
             </div>
@@ -483,7 +573,7 @@ function OperatingHours() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function ReviewsAndRatings() {
@@ -536,16 +626,17 @@ function ReviewsAndRatings() {
       verified: true,
       helpful: 42,
     },
-  ]
+  ];
 
-  const averageRating = reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
-  const totalReviews = 1247
+  const averageRating =
+    reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length;
+  const totalReviews = 1247;
 
   const ratingDistribution = [5, 4, 3, 2, 1].map((star) => ({
     star,
     count: Math.floor(Math.random() * 200) + 50,
     percentage: Math.floor(Math.random() * 60) + 20,
-  }))
+  }));
 
   return (
     <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 relative overflow-hidden">
@@ -584,7 +675,12 @@ function ReviewsAndRatings() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -597,17 +693,21 @@ function ReviewsAndRatings() {
 
           <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
             Apa Kata{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Mereka</span>
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Mereka
+            </span>
             <br />
             Tentang{" "}
-            <span className="bg-gradient-to-r from-rose-600 to-orange-600 bg-clip-text text-transparent">SumSkuy</span>
+            <span className="bg-gradient-to-r from-rose-600 to-orange-600 bg-clip-text text-transparent">
+              SumSkuy
+            </span>
           </h2>
 
           <div className="w-32 h-2 bg-gradient-to-r from-purple-400 via-pink-500 to-rose-500 mx-auto mb-6 rounded-full"></div>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Kepuasan pelanggan adalah prioritas utama kami. Simak cerita mereka yang telah merasakan kelezatan dimsum
-            SumSkuy
+            Kepuasan pelanggan adalah prioritas utama kami. Simak cerita mereka
+            yang telah merasakan kelezatan dimsum SumSkuy
           </p>
         </div>
 
@@ -635,7 +735,11 @@ function ReviewsAndRatings() {
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className={`w-8 h-8 ${i < Math.floor(averageRating) ? "text-yellow-400" : "text-gray-300"}`}
+                      className={`w-8 h-8 ${
+                        i < Math.floor(averageRating)
+                          ? "text-yellow-400"
+                          : "text-gray-300"
+                      }`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -651,8 +755,14 @@ function ReviewsAndRatings() {
               <div className="space-y-3 mb-8">
                 {ratingDistribution.map(({ star, count, percentage }) => (
                   <div key={star} className="flex items-center group">
-                    <span className="w-8 text-gray-700 font-semibold text-sm">{star}</span>
-                    <svg className="w-4 h-4 text-yellow-400 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                    <span className="w-8 text-gray-700 font-semibold text-sm">
+                      {star}
+                    </span>
+                    <svg
+                      className="w-4 h-4 text-yellow-400 mx-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
 
@@ -663,7 +773,9 @@ function ReviewsAndRatings() {
                       ></div>
                     </div>
 
-                    <span className="w-12 text-right text-gray-600 text-sm font-medium">{count}</span>
+                    <span className="w-12 text-right text-gray-600 text-sm font-medium">
+                      {count}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -671,14 +783,23 @@ function ReviewsAndRatings() {
               {/* Action Buttons */}
               <div className="space-y-3">
                 <button className="w-full bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                   Beri Ulasan Anda
                 </button>
 
                 <button className="w-full border-2 border-purple-300 text-purple-600 hover:bg-purple-50 font-semibold py-3 px-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -698,7 +819,11 @@ function ReviewsAndRatings() {
               {/* Header */}
               <div className="p-6 bg-gradient-to-r from-purple-500 to-pink-600 text-white">
                 <h3 className="text-2xl font-bold flex items-center gap-3">
-                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                  <svg
+                    className="w-8 h-8"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
                     <path
                       fillRule="evenodd"
                       d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
@@ -732,7 +857,11 @@ function ReviewsAndRatings() {
                           />
                           {review.verified && (
                             <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center border-2 border-white">
-                              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <svg
+                                className="w-3 h-3 text-white"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
                                 <path
                                   fillRule="evenodd"
                                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -757,7 +886,11 @@ function ReviewsAndRatings() {
 
                           <div className="flex items-center gap-4 text-sm text-gray-500">
                             <div className="flex items-center gap-1">
-                              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                              <svg
+                                className="w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
                                 <path
                                   fillRule="evenodd"
                                   d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -776,7 +909,11 @@ function ReviewsAndRatings() {
                           {[...Array(5)].map((_, i) => (
                             <svg
                               key={i}
-                              className={`w-5 h-5 ${i < review.rating ? "text-yellow-400" : "text-gray-300"}`}
+                              className={`w-5 h-5 ${
+                                i < review.rating
+                                  ? "text-yellow-400"
+                                  : "text-gray-300"
+                              }`}
                               fill="currentColor"
                               viewBox="0 0 20 20"
                             >
@@ -788,24 +925,37 @@ function ReviewsAndRatings() {
 
                       {/* Review Content */}
                       <div className="mb-4">
-                        <p className="text-gray-700 leading-relaxed text-lg">"{review.comment}"</p>
+                        <p className="text-gray-700 leading-relaxed text-lg">
+                          "{review.comment}"
+                        </p>
                       </div>
 
                       {/* Review Actions */}
                       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                         <button className="flex items-center gap-2 text-gray-500 hover:text-purple-600 transition-colors">
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <svg
+                            className="w-4 h-4"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
                             <path
                               fillRule="evenodd"
                               d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
                               clipRule="evenodd"
                             />
                           </svg>
-                          <span className="text-sm font-medium">Helpful ({review.helpful})</span>
+                          <span className="text-sm font-medium">
+                            Helpful ({review.helpful})
+                          </span>
                         </button>
 
                         <button className="text-gray-400 hover:text-purple-600 transition-colors">
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
                             <path
                               strokeLinecap="round"
                               strokeLinejoin="round"
@@ -842,7 +992,7 @@ function ReviewsAndRatings() {
         }
       `}</style>
     </section>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
