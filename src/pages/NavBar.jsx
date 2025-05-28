@@ -40,9 +40,9 @@ function NavBar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 pr-15 pl-15 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/20 py-2"
+          ? "bg-white/80 backdrop-blur-xl shadow-sm shadow-amber-200 py-4"
           : "bg-white/10 backdrop-blur-sm py-4"
       }`}
     >
@@ -69,32 +69,24 @@ function NavBar() {
             <ul className="flex space-x-1">
               {navLinks.map((link) => (
                 <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className={`relative px-4 py-2 font-semibold transition-all duration-300 rounded-lg ${
-                      activeLink === link.path ? "text-amber-600" : "text-gray-700 hover:text-amber-600"
-                    }`}
-                    onClick={() => setActiveLink(link.path)}
-                  >
-                    {link.label}
-                    {activeLink === link.path && (
-                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-amber-400 to-red-500 transform origin-left"></span>
-                    )}
-                  </Link>
-                </li>
+                <Link
+                  to={link.path}
+                  className={`relative group px-4 py-2 font-semibold transition-all duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-gradient-to-r after:from-amber-400 after:to-red-500 after:transition-all after:duration-300 ${
+                    activeLink === link.path ? "text-amber-600 after:opacity-100" : "text-gray-700 after:opacity-0 group-hover:text-amber-600 group-hover:after:opacity-50"
+                  }`}
+                  onClick={() => setActiveLink(link.path)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+              
               ))}
             </ul>
           </div>
 
           {/* Action Buttons */}
           <div className="flex items-center gap-3">
-            {/* Cart Button */}
-            <button className="relative p-2 text-gray-700 hover:text-amber-600 transition-colors">
-              <FaShoppingCart className="text-xl" />
-              <span className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center bg-red-500 text-white text-xs rounded-full">
-                3
-              </span>
-            </button>
+            
 
             {/* Order Button */}
             <button className="hidden md:flex bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-600 hover:to-red-600 text-white px-5 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
@@ -153,12 +145,7 @@ function NavBar() {
               ))}
             </ul>
 
-            <div className="mt-4 pt-4 border-t border-gray-100">
-              <button className="w-full bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-600 hover:to-red-600 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2">
-                <FaShoppingCart />
-                Order Now
-              </button>
-            </div>
+            
           </div>
         </div>
       </div>
