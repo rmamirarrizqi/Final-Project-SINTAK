@@ -5,7 +5,7 @@ function ContactPage() {
   return (
     <>
       <NavBar />
-      <h1>ini ContactPage</h1>
+      <ContactSection />
     </>
   );
 }
