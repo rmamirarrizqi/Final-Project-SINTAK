@@ -1,29 +1,28 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useMemo } from "react"
-import { Link } from "react-router-dom"
-
+import { useState, useEffect, useMemo } from "react";
+import { Link } from "react-router-dom";
 
 function NotFoundPage() {
   return (
     <>
       <NotFoundHero />
     </>
-  )
+  );
 }
 
 function NotFoundHero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isSearching, setIsSearching] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const floatingElements = useMemo(() => {
     return [...Array(20)].map((_, i) => ({
@@ -33,35 +32,67 @@ function NotFoundHero() {
       delay: `${Math.random() * 5}s`,
       duration: `${4 + Math.random() * 3}s`,
       size: `${15 + Math.random() * 25}px`,
-      emoji: ["🥟", "🍜", "🥢", "🍱", "🥠", "🍲"][Math.floor(Math.random() * 6)],
-    }))
-  }, [])
+      emoji: ["🥟", "🍜", "🥢", "🍱", "🥠", "🍲"][
+        Math.floor(Math.random() * 6)
+      ],
+    }));
+  }, []);
 
   const handleSearch = (e) => {
-    e.preventDefault()
-    setIsSearching(true)
+    e.preventDefault();
+    setIsSearching(true);
     // Simulate search
     setTimeout(() => {
-      setIsSearching(false)
+      setIsSearching(false);
       // Redirect to search results or show suggestions
-    }, 2000)
-  }
+    }, 2000);
+  };
 
   const popularPages = [
-    { name: "Home", path: "/", icon: "🏠", description: "Kembali ke halaman utama" },
-    { name: "Menu", path: "/product", icon: "🥟", description: "Lihat menu dimsum kami" },
-    { name: "Gallery", path: "/gallery", icon: "📸", description: "Koleksi foto dan video" },
-    { name: "About Us", path: "/about", icon: "ℹ️", description: "Tentang SumSkuy" },
-    { name: "Contact", path: "/contact", icon: "📞", description: "Hubungi kami" },
-    { name: "Pre-Order", path: "/preorder", icon: "🛒", description: "Pesan dimsum favorit" },
-  ]
+    {
+      name: "Home",
+      path: "/",
+      icon: "🏠",
+      description: "Kembali ke halaman utama",
+    },
+    {
+      name: "Menu",
+      path: "/product",
+      icon: "🥟",
+      description: "Lihat menu dimsum kami",
+    },
+    {
+      name: "Gallery",
+      path: "/gallery",
+      icon: "📸",
+      description: "Koleksi foto dan video",
+    },
+    {
+      name: "About Us",
+      path: "/about",
+      icon: "ℹ️",
+      description: "Tentang SumSkuy",
+    },
+    {
+      name: "Contact",
+      path: "/contact",
+      icon: "📞",
+      description: "Hubungi kami",
+    },
+    {
+      name: "Pre-Order",
+      path: "/preorder",
+      icon: "🛒",
+      description: "Pesan dimsum favorit",
+    },
+  ];
 
   const funFacts = [
     "🥟 Kami telah menyajikan lebih dari 50,000 dimsum!",
     "👨‍🍳 Chef kami memiliki pengalaman 15+ tahun",
     "⭐ Rating 4.9/5 dari 1000+ pelanggan",
     "🏪 Sudah memiliki 5 cabang di Indonesia",
-  ]
+  ];
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-red-50 via-orange-50 to-amber-50">
@@ -123,7 +154,9 @@ function NotFoundHero() {
           {/* Error Message */}
           <div className="mb-8">
             <h2 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
-              <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">Oops!</span>
+              <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+                Oops!
+              </span>
               <br />
               <span className="bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
                 Halaman Tidak Ditemukan
@@ -133,10 +166,12 @@ function NotFoundHero() {
             <div className="w-32 h-2 bg-gradient-to-r from-red-400 via-orange-500 to-amber-500 mx-auto mb-6 rounded-full"></div>
 
             <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-8">
-              Sepertinya halaman yang Anda cari sudah <span className="font-semibold text-red-600">"habis"</span>{" "}
+              Sepertinya halaman yang Anda cari sudah{" "}
+              <span className="font-semibold text-red-600">"habis"</span>{" "}
               seperti dimsum favorit kami! 😅
               <br />
-              Tapi jangan khawatir, masih banyak kelezatan lain yang bisa Anda jelajahi.
+              Tapi jangan khawatir, masih banyak kelezatan lain yang bisa Anda
+              jelajahi.
             </p>
           </div>
 
@@ -159,7 +194,12 @@ function NotFoundHero() {
                   {isSearching ? (
                     <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                   ) : (
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -179,7 +219,12 @@ function NotFoundHero() {
               to="/"
               className="group bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-600 hover:to-orange-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -194,7 +239,12 @@ function NotFoundHero() {
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
             </Link>
 
@@ -202,7 +252,12 @@ function NotFoundHero() {
               to="/product"
               className="group border-2 border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -216,7 +271,9 @@ function NotFoundHero() {
 
           {/* Popular Pages Grid */}
           <div className="max-w-6xl mx-auto mb-16">
-            <h3 className="text-3xl font-bold text-gray-800 mb-8">Halaman Populer</h3>
+            <h3 className="text-3xl font-bold text-gray-800 mb-8">
+              Halaman Populer
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {popularPages.map((page) => (
                 <Link
@@ -239,7 +296,8 @@ function NotFoundHero() {
           {/* Fun Facts Section */}
           <div className="bg-white/60 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-lg max-w-4xl mx-auto mb-12">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              💡 Tahukah Anda? <span className="text-orange-600">Fun Facts SumSkuy</span>
+              💡 Tahukah Anda?{" "}
+              <span className="text-orange-600">Fun Facts SumSkuy</span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {funFacts.map((fact, index) => (
@@ -257,14 +315,20 @@ function NotFoundHero() {
           <div className="bg-gradient-to-r from-red-500 to-orange-600 rounded-3xl p-8 text-white max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">Butuh Bantuan? 🤝</h3>
             <p className="text-lg mb-6 opacity-90">
-              Tim customer service kami siap membantu Anda menemukan apa yang dicari atau menjawab pertanyaan Anda.
+              Tim customer service kami siap membantu Anda menemukan apa yang
+              dicari atau menjawab pertanyaan Anda.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
                 className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -280,7 +344,11 @@ function NotFoundHero() {
                 rel="noopener noreferrer"
                 className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
                 </svg>
                 WhatsApp
@@ -292,7 +360,8 @@ function NotFoundHero() {
 
       <style jsx>{`
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0) rotate(0deg);
           }
           33% {
@@ -304,7 +373,7 @@ function NotFoundHero() {
         }
       `}</style>
     </section>
-  )
+  );
 }
 
-export default NotFoundPage
+export default NotFoundPage;

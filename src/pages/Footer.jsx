@@ -1,6 +1,10 @@
 "use client";
 
 import { Link } from "react-router-dom";
+import { FaInstagram } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -49,10 +53,10 @@ function Footer() {
             <p className="text-lg mb-6 opacity-90">Follow us on social media</p>
             <div className="flex justify-center gap-4">
               {[
-                { name: "Instagram", icon: "📷", url: "#" },
-                { name: "Facebook", icon: "📘", url: "#" },
-                { name: "TikTok", icon: "🎵", url: "#" },
-                { name: "YouTube", icon: "📺", url: "#" },
+                { name: "Instagram", icon: <FaInstagram />, url: "#" },
+                { name: "Facebook", icon: <FaTiktok />, url: "#" },
+                { name: "TikTok", icon: <FaFacebook />, url: "#" },
+                { name: "YouTube", icon: <FaYoutube />, url: "#" },
               ].map((social) => (
                 <a
                   key={social.name}

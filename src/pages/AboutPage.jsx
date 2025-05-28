@@ -433,14 +433,14 @@ function OurValues() {
       color: "from-red-400 to-pink-500",
     },
     {
-      icon: <FaHandshake/>,
+      icon: <FaHandshake />,
       title: "Pelayanan Prima",
       description:
         "Memberikan pengalaman kuliner yang tak terlupakan dengan pelayanan ramah",
       color: "from-blue-400 to-indigo-500",
     },
     {
-      icon: <RiPlantFill/>,
+      icon: <RiPlantFill />,
       title: "Inovasi Berkelanjutan",
       description:
         "Terus berinovasi dalam cita rasa sambil mempertahankan keaslian tradisional",
@@ -684,7 +684,7 @@ function AwardsSection() {
       year: "2022",
       title: "Customer Choice Award",
       organization: "Food & Beverage Excellence",
-      icon: <FaStar/>,
+      icon: <FaStar />,
       color: "from-blue-400 to-indigo-500",
     },
     {
