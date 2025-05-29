@@ -47,6 +47,7 @@ function ContactHero() {
 
   return (
     <section className="relative min-h-[70vh] overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-br from-blue-200/40 to-indigo-300/40 rounded-full blur-3xl animate-pulse"></div>
         <div
@@ -59,6 +60,7 @@ function ContactHero() {
         ></div>
       </div>
 
+      {/* Floating Contact Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {floatingElements.map((element) => (
           <div
@@ -76,6 +78,7 @@ function ContactHero() {
         ))}
       </div>
 
+      {/* Mouse Follower */}
       <div
         className="fixed w-6 h-6 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full pointer-events-none z-30 opacity-50 transition-all duration-300 ease-out"
         style={{
@@ -85,8 +88,10 @@ function ContactHero() {
         }}
       ></div>
 
+      {/* Main Content */}
       <div className="container mx-auto px-6 pt-32 pb-12 h-full flex items-center relative z-10">
         <div className="text-center w-full">
+          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-blue-200">
             <svg
               className="w-4 h-4"
@@ -104,6 +109,7 @@ function ContactHero() {
             Hubungi Kami
           </div>
 
+          {/* Title */}
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-none">
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Mari
@@ -125,6 +131,7 @@ function ContactHero() {
             <span className="font-semibold text-purple-600">respon cepat</span>
           </p>
 
+          {/* Quick Contact Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://wa.me/6281234567890"
@@ -231,6 +238,7 @@ function ContactInfo() {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
+        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -262,6 +270,7 @@ function ContactInfo() {
           </p>
         </div>
 
+        {/* Contact Methods Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {contactMethods.map((method, index) => (
             <a
@@ -273,6 +282,7 @@ function ContactInfo() {
               }
               className="group bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 text-center"
             >
+              {/* Icon */}
               <div className="relative mb-6">
                 <div
                   className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-r ${method.color} flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}
@@ -284,6 +294,7 @@ function ContactInfo() {
                 ></div>
               </div>
 
+              {/* Content */}
               <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">
                 {method.title}
               </h3>
@@ -292,6 +303,7 @@ function ContactInfo() {
               </p>
               <p className="text-gray-600 text-sm">{method.description}</p>
 
+              {/* Decorative Element */}
               <div
                 className={`w-16 h-1 bg-gradient-to-r ${method.color} mx-auto mt-6 rounded-full group-hover:w-24 transition-all duration-300`}
               ></div>
@@ -299,6 +311,7 @@ function ContactInfo() {
           ))}
         </div>
 
+        {/* Operating Hours */}
         <div className="mt-16 bg-white/60 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-lg">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-2">
@@ -379,6 +392,7 @@ function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitStatus("success");
@@ -391,6 +405,7 @@ function ContactForm() {
         category: "general",
       });
 
+      // Reset status after 3 seconds
       setTimeout(() => {
         setSubmitStatus(null);
       }, 3000);
@@ -400,6 +415,7 @@ function ContactForm() {
   return (
     <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
+        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <svg
@@ -461,6 +477,7 @@ function ContactForm() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name and Email Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label
@@ -501,6 +518,7 @@ function ContactForm() {
                 </div>
               </div>
 
+              {/* Phone and Category Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label
@@ -544,6 +562,7 @@ function ContactForm() {
                 </div>
               </div>
 
+              {/* Subject */}
               <div>
                 <label
                   htmlFor="subject"
@@ -563,6 +582,7 @@ function ContactForm() {
                 />
               </div>
 
+              {/* Message */}
               <div>
                 <label
                   htmlFor="message"
@@ -582,6 +602,7 @@ function ContactForm() {
                 ></textarea>
               </div>
 
+              {/* Submit Button */}
               <div className="text-center">
                 <button
                   type="submit"
@@ -739,6 +760,7 @@ function FAQ() {
             ))}
           </div>
 
+          {/* Still Have Questions */}
           <div className="mt-12 text-center">
             <div className="bg-gradient-to-r from-amber-500 to-red-500 rounded-3xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Masih Ada Pertanyaan?</h3>
