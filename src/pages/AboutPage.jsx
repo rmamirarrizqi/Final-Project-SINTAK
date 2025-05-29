@@ -283,6 +283,7 @@ function OurStory() {
       description:
         "Dimulai dari dapur kecil dengan resep keluarga turun temurun",
       icon: <FaHome />,
+      icon: "🏠",
       color: "from-amber-400 to-orange-500",
     },
     {
