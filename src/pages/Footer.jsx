@@ -1,155 +1,73 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBowlFood } from "react-icons/fa6";
 
-function NavBar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("/");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-
-    setActiveLink(window.location.pathname);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About Us" },
-    { path: "/product", label: "Product" },
-    { path: "/gallery", label: "Gallery" },
-    { path: "/contact", label: "Contact Us" },
-  ];
-
+function Footer() {
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-sm shadow-amber-200 py-4"
-          : "bg-white/10 backdrop-blur-sm py-4"
-      }`}
-    >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row items-center justify-between">
-          <div className="w-full lg:w-auto flex justify-between items-center">
+    <section className="py-20 bg-gradient-to-br from-red-500 via-orange-500 to-amber-500 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center text-white">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+            Siap Merasakan
+            <br />
+            <span className="text-yellow-200">Kelezatan SumSkuy?</span>
+          </h2>
+
+          <p className="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
+            Bergabunglah dengan ribuan pelanggan yang telah merasakan pengalaman
+            kuliner tak terlupakan bersama kami
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
-              to="/"
-              className="flex items-center gap-2 group"
-              onClick={() => setActiveLink("/")}
+              to="/contact"
+              className="group border-2 border-white text-white hover:bg-white hover:text-red-600 font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
             >
-              <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-red-500 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-all duration-300">
-                  <FaBowlFood className="text-white text-xl" />
-                </div>
-                <div className="absolute -inset-1 bg-gradient-to-br from-amber-400 to-red-500 rounded-xl blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold bg-gradient-to-r from-amber-600 to-red-600 bg-clip-text text-transparent">
-                  SumSkuy!
-                </span>
-                <span className="text-xs text-gray-500 -mt-1">
-                  Authentic Dimsum
-                </span>
-              </div>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              Hubungi Kami
             </Link>
-
-            <button
-              className="lg:hidden p-2 rounded-lg bg-gradient-to-r from-amber-100 to-red-100 text-amber-700"
-              onClick={toggleMobileMenu}
-              aria-label="Toggle menu"
-            >
-              <div className="w-6 flex flex-col items-end gap-1.5">
-                <span
-                  className={`block h-0.5 bg-current transition-all duration-300 ${
-                    mobileMenuOpen ? "w-6 -rotate-45 translate-y-2" : "w-6"
-                  }`}
-                ></span>
-                <span
-                  className={`block h-0.5 bg-current transition-all duration-300 ${
-                    mobileMenuOpen ? "opacity-0" : "w-4"
-                  }`}
-                ></span>
-                <span
-                  className={`block h-0.5 bg-current transition-all duration-300 ${
-                    mobileMenuOpen ? "w-6 rotate-45 -translate-y-2" : "w-5"
-                  }`}
-                ></span>
-              </div>
-            </button>
           </div>
 
-          <div className="hidden lg:flex items-center justify-center flex-1">
-            <ul className="flex space-x-1">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className={`relative group px-4 py-2 font-semibold transition-all duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-gradient-to-r after:from-amber-400 after:to-red-500 after:transition-all after:duration-300 ${
-                      activeLink === link.path
-                        ? "text-amber-600 after:opacity-100"
-                        : "text-gray-700 after:opacity-0 group-hover:text-amber-600 group-hover:after:opacity-50"
-                    }`}
-                    onClick={() => setActiveLink(link.path)}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
+          <div className="mt-12">
+            <p className="text-lg mb-6 opacity-90">Follow us on social media</p>
+            <div className="flex justify-center gap-4">
+              {[
+                { name: "Instagram", icon: "📷", url: "#" },
+                { name: "Facebook", icon: "📘", url: "#" },
+                { name: "TikTok", icon: "🎵", url: "#" },
+                { name: "YouTube", icon: "📺", url: "#" },
+              ].map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl hover:bg-white/30 transition-colors"
+                >
+                  {social.icon}
+                </a>
               ))}
-            </ul>
-          </div>
-
-          <div className="hidden lg:block w-40"></div>
-        </div>
-
-        <div
-          className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-            mobileMenuOpen
-              ? "max-h-[400px] opacity-100 mt-4"
-              : "max-h-0 opacity-0"
-          }`}
-        >
-          <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-xl border border-gray-100 p-4 mt-2">
-            <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className={`flex items-center p-3 rounded-xl transition-all duration-300 ${
-                      activeLink === link.path
-                        ? "bg-gradient-to-r from-amber-50 to-red-50 text-amber-700 font-bold"
-                        : "text-gray-700 hover:bg-gray-50"
-                    }`}
-                    onClick={() => {
-                      setActiveLink(link.path);
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    {activeLink === link.path && (
-                      <span className="w-1 h-6 bg-gradient-to-b from-amber-400 to-red-500 rounded-full mr-3"></span>
-                    )}
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-amber-500 via-red-500 to-amber-500 opacity-30"></div>
-    </nav>
+    </section>
   );
 }
 
-export default NavBar;
+export default Footer;
