@@ -4,7 +4,6 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ProductPage from "./pages/ProductPage";
 import GalleryPage from "./pages/GalleryPage";
-import PreOrderPage from "./pages/PreOrderPage";
 import ContactPage from "./pages/ContactPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
