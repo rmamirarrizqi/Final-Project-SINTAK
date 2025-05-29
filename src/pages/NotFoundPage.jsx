@@ -2,12 +2,11 @@
 
 import { useState, useEffect, useMemo } from "react"
 import { Link } from "react-router-dom"
-import NavBar from "./NavBar"
+
 
 function NotFoundPage() {
   return (
     <>
-      <NavBar />
       <NotFoundHero />
     </>
   )
@@ -117,7 +116,7 @@ function NotFoundHero() {
               404
             </h1>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-8xl md:text-9xl animate-bounce">🥟</div>
+              <div className="text-9xl md:text-10xl animate-bounce">🥟</div>
             </div>
           </div>
 
