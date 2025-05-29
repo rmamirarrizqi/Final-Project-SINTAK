@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useMemo } from "react"
-import { Link } from "react-router-dom"
+import { useState, useEffect, useMemo } from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <section className="py-20 bg-gradient-to-br from-red-500 via-orange-500 to-amber-500 relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
@@ -21,7 +20,8 @@ function Footer() {
           </h2>
 
           <p className="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
-            Bergabunglah dengan ribuan pelanggan yang telah merasakan pengalaman kuliner tak terlupakan bersama kami
+            Bergabunglah dengan ribuan pelanggan yang telah merasakan pengalaman
+            kuliner tak terlupakan bersama kami
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -29,7 +29,12 @@ function Footer() {
               to="/preorder"
               className="group bg-white text-red-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -44,7 +49,12 @@ function Footer() {
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
             </Link>
 
@@ -52,7 +62,12 @@ function Footer() {
               to="/contact"
               className="group border-2 border-white text-white hover:bg-white hover:text-red-600 font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -87,7 +102,7 @@ function Footer() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

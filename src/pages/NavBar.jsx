@@ -1,32 +1,32 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import { FaBowlFood } from "react-icons/fa6"
-import { FaShoppingCart } from "react-icons/fa"
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FaBowlFood } from "react-icons/fa6";
+import { FaShoppingCart } from "react-icons/fa";
 
 function NavBar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [activeLink, setActiveLink] = useState("/")
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("/");
 
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
 
     // Set active link based on current path
-    setActiveLink(window.location.pathname)
+    setActiveLink(window.location.pathname);
 
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Toggle mobile menu
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen)
-  }
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   // Navigation links data
   const navLinks = [
@@ -36,7 +36,7 @@ function NavBar() {
     { path: "/gallery", label: "Gallery" },
     { path: "/preorder", label: "Pre - Order" },
     { path: "/contact", label: "Contact Us" },
-  ]
+  ];
 
   return (
     <nav
@@ -49,7 +49,11 @@ function NavBar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group" onClick={() => setActiveLink("/")}>
+          <Link
+            to="/"
+            className="flex items-center gap-2 group"
+            onClick={() => setActiveLink("/")}
+          >
             <div className="relative">
               <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-red-500 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-all duration-300">
                 <FaBowlFood className="text-white text-xl" />
@@ -60,7 +64,9 @@ function NavBar() {
               <span className="text-xl font-bold bg-gradient-to-r from-amber-600 to-red-600 bg-clip-text text-transparent">
                 SumSkuy!
               </span>
-              <span className="text-xs text-gray-500 -mt-1">Authentic Dimsum</span>
+              <span className="text-xs text-gray-500 -mt-1">
+                Authentic Dimsum
+              </span>
             </div>
           </Link>
 
@@ -69,25 +75,24 @@ function NavBar() {
             <ul className="flex space-x-1">
               {navLinks.map((link) => (
                 <li key={link.path}>
-                <Link
-                  to={link.path}
-                  className={`relative group px-4 py-2 font-semibold transition-all duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-gradient-to-r after:from-amber-400 after:to-red-500 after:transition-all after:duration-300 ${
-                    activeLink === link.path ? "text-amber-600 after:opacity-100" : "text-gray-700 after:opacity-0 group-hover:text-amber-600 group-hover:after:opacity-50"
-                  }`}
-                  onClick={() => setActiveLink(link.path)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-              
+                  <Link
+                    to={link.path}
+                    className={`relative group px-4 py-2 font-semibold transition-all duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-gradient-to-r after:from-amber-400 after:to-red-500 after:transition-all after:duration-300 ${
+                      activeLink === link.path
+                        ? "text-amber-600 after:opacity-100"
+                        : "text-gray-700 after:opacity-0 group-hover:text-amber-600 group-hover:after:opacity-50"
+                    }`}
+                    onClick={() => setActiveLink(link.path)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
 
           {/* Action Buttons */}
           <div className="flex items-center gap-3">
-            
-
             {/* Order Button */}
             <button className="hidden md:flex bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-600 hover:to-red-600 text-white px-5 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
               Order Now
@@ -101,13 +106,19 @@ function NavBar() {
             >
               <div className="w-6 flex flex-col items-end gap-1.5">
                 <span
-                  className={`block h-0.5 bg-current transition-all duration-300 ${mobileMenuOpen ? "w-6 -rotate-45 translate-y-2" : "w-6"}`}
+                  className={`block h-0.5 bg-current transition-all duration-300 ${
+                    mobileMenuOpen ? "w-6 -rotate-45 translate-y-2" : "w-6"
+                  }`}
                 ></span>
                 <span
-                  className={`block h-0.5 bg-current transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : "w-4"}`}
+                  className={`block h-0.5 bg-current transition-all duration-300 ${
+                    mobileMenuOpen ? "opacity-0" : "w-4"
+                  }`}
                 ></span>
                 <span
-                  className={`block h-0.5 bg-current transition-all duration-300 ${mobileMenuOpen ? "w-6 rotate-45 -translate-y-2" : "w-5"}`}
+                  className={`block h-0.5 bg-current transition-all duration-300 ${
+                    mobileMenuOpen ? "w-6 rotate-45 -translate-y-2" : "w-5"
+                  }`}
                 ></span>
               </div>
             </button>
@@ -117,7 +128,9 @@ function NavBar() {
         {/* Mobile Menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-            mobileMenuOpen ? "max-h-[400px] opacity-100 mt-4" : "max-h-0 opacity-0"
+            mobileMenuOpen
+              ? "max-h-[400px] opacity-100 mt-4"
+              : "max-h-0 opacity-0"
           }`}
         >
           <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-xl border border-gray-100 p-4 mt-2">
@@ -132,8 +145,8 @@ function NavBar() {
                         : "text-gray-700 hover:bg-gray-50"
                     }`}
                     onClick={() => {
-                      setActiveLink(link.path)
-                      setMobileMenuOpen(false)
+                      setActiveLink(link.path);
+                      setMobileMenuOpen(false);
                     }}
                   >
                     {activeLink === link.path && (
@@ -144,16 +157,13 @@ function NavBar() {
                 </li>
               ))}
             </ul>
-
-            
           </div>
         </div>
       </div>
 
-      {/* Animated Highlight Effect */}
       <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-amber-500 via-red-500 to-amber-500 opacity-30"></div>
     </nav>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;
