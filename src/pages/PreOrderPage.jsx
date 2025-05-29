@@ -5,7 +5,6 @@ function PreOrderPage() {
   return (
     <>
       <NavBar />
-      <h1>ini PreOrderPage</h1>
     </>
   );
 }
