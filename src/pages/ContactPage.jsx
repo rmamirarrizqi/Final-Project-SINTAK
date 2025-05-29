@@ -5,6 +5,8 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdAttachEmail } from "react-icons/md";
+import { IoMdCall } from "react-icons/io";
+import { ImLocation2 } from "react-icons/im";
 
 function ContactPage() {
   return (
@@ -193,7 +195,7 @@ function ContactHero() {
 function ContactInfo() {
   const contactMethods = [
     {
-      icon: "📞",
+      icon: <IoMdCall />,
       title: "Telepon",
       info: "+62 21 2929 3939",
       description: "Senin - Minggu, 09:00 - 22:00",
@@ -217,7 +219,7 @@ function ContactInfo() {
       color: "from-green-400 to-emerald-500",
     },
     {
-      icon: "📍",
+      icon: <ImLocation2 />,
       title: "Alamat Utama",
       info: "Mall Central Park Lt. 3",
       description: "Jakarta Barat, Indonesia",
