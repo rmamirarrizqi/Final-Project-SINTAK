@@ -3,6 +3,8 @@
 import { useState, useEffect, useMemo } from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import { FaWhatsapp } from "react-icons/fa";
+import { MdAttachEmail } from "react-icons/md";
 
 function ContactPage() {
   return (
@@ -199,7 +201,7 @@ function ContactInfo() {
       color: "from-blue-400 to-indigo-500",
     },
     {
-      icon: "📧",
+      icon: <MdAttachEmail />,
       title: "Email",
       info: "hello@sumskuy.com",
       description: "Respon dalam 24 jam",
@@ -207,7 +209,7 @@ function ContactInfo() {
       color: "from-purple-400 to-pink-500",
     },
     {
-      icon: "💬",
+      icon: <FaWhatsapp />,
       title: "WhatsApp",
       info: "+62 812 3456 7890",
       description: "Chat langsung dengan tim kami",
