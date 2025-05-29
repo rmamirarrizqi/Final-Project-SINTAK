@@ -40,9 +40,8 @@ function NavBar() {
           : "bg-white/10 backdrop-blur-sm py-4"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-10 px-4 md:px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between">
-          {/* Logo Section - Tetap di atas pada mobile, di kiri pada desktop */}
           <div className="w-full lg:w-auto flex justify-between items-center">
             <Link
               to="/"
@@ -65,7 +64,6 @@ function NavBar() {
               </div>
             </Link>
 
-            {/* Mobile Menu Button */}
             <button
               className="lg:hidden p-2 rounded-lg bg-gradient-to-r from-amber-100 to-red-100 text-amber-700"
               onClick={toggleMobileMenu}
@@ -91,7 +89,6 @@ function NavBar() {
             </button>
           </div>
 
-          {/* Navigation Links - Dipusatkan */}
           <div className="hidden lg:flex items-center justify-center flex-1">
             <ul className="flex space-x-1">
               {navLinks.map((link) => (
@@ -112,11 +109,9 @@ function NavBar() {
             </ul>
           </div>
 
-          {/* Placeholder untuk alignment (opsional) */}
           <div className="hidden lg:block w-40"></div>
         </div>
 
-        {/* Mobile Menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
             mobileMenuOpen
