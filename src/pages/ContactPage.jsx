@@ -217,27 +217,21 @@ function ContactInfo() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl">
-              <div className="text-2xl mb-2">
-                <IoMdCall />
-              </div>
+              <div className="text-2xl mb-2">📞</div>
               <h4 className="font-bold text-gray-900 mb-2">Telepon</h4>
               <p className="text-gray-600">Senin - Minggu</p>
               <p className="text-blue-600 font-semibold">09:00 - 22:00</p>
             </div>
 
             <div className="text-center p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl">
-              <div className="text-2xl mb-2">
-                <FaWhatsapp />
-              </div>
+              <div className="text-2xl mb-2">💬</div>
               <h4 className="font-bold text-gray-900 mb-2">WhatsApp</h4>
               <p className="text-gray-600">Senin - Minggu</p>
               <p className="text-green-600 font-semibold">24 Jam</p>
             </div>
 
             <div className="text-center p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl">
-              <div className="text-2xl mb-2">
-                <MdAttachEmail />
-              </div>
+              <div className="text-2xl mb-2">📧</div>
               <h4 className="font-bold text-gray-900 mb-2">Email</h4>
               <p className="text-gray-600">Respon dalam</p>
               <p className="text-purple-600 font-semibold">24 Jam</p>
