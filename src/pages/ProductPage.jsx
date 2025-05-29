@@ -53,23 +53,6 @@ function ProductHero() {
         ></div>
       </div>
 
-      {/* Floating Food Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {floatingElements.map((element) => (
-          <div
-            key={element.id}
-            className="absolute opacity-20 text-2xl"
-            style={{
-              left: element.left,
-              top: element.top,
-              animation: `float ${element.duration} ease-in-out infinite`,
-              animationDelay: element.delay,
-            }}
-          >
-            {element.emoji}
-          </div>
-        ))}
-      </div>
 
       {/* Mouse Follower */}
       <div
