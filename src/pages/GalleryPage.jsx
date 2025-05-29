@@ -53,7 +53,6 @@ function GalleryHero() {
         ></div>
       </div>
 
-
       {/* Mouse Follower */}
       <div
         className="fixed w-6 h-6 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full pointer-events-none z-30 opacity-50 transition-all duration-300 ease-out"
