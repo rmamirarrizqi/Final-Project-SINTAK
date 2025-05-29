@@ -540,7 +540,7 @@ function TeamSection() {
       name: "Sarah Lim",
       position: "Operations Manager",
       image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
+        "/SarahLim.png",
       description:
         "Memastikan kualitas dan konsistensi di setiap cabang SumSkuy",
       social: { instagram: "#", linkedin: "#" },
