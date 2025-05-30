@@ -85,13 +85,6 @@ function NavBar() {
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Order Button */}
-            <Link to="https://wa.me/62895604626853?text=Permisi%20kak%20ikii,%20saya%20ingin%20melakukan%20pemesanan%20dimsum">
-              <button className="hidden md:flex bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-600 hover:to-red-600 text-white px-5 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Order Now
-              </button>
-            </Link>
-
             <button
               className="lg:hidden p-2 rounded-lg bg-gradient-to-r from-amber-100 to-red-100 text-amber-700"
               onClick={toggleMobileMenu}

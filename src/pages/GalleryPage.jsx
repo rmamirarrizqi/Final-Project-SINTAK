@@ -383,24 +383,25 @@ function PhotoGallery() {
           <button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg">
             Load More Photos
           </button>
-        {/* Load More Button - hanya tampil jika masih ada gambar yang belum ditampilkan */}
-        {visibleImages < filteredImages.length && (
-          <div className="text-center mt-12">
-            <button
-              onClick={loadMoreImages}
-              className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              Load More Photos
-            </button>
-          </div>
-        )}
+          {/* Load More Button - hanya tampil jika masih ada gambar yang belum ditampilkan */}
+          {visibleImages < filteredImages.length && (
+            <div className="text-center mt-12">
+              <button
+                onClick={loadMoreImages}
+                className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                Load More Photos
+              </button>
+            </div>
+          )}
 
-        {/* Info jumlah gambar yang ditampilkan */}
-        <div className="text-center mt-6">
-          <p className="text-gray-500 text-sm">
-            Menampilkan {displayedImages.length} dari {filteredImages.length}{" "}
-            foto
-          </p>
+          {/* Info jumlah gambar yang ditampilkan */}
+          <div className="text-center mt-6">
+            <p className="text-gray-500 text-sm">
+              Menampilkan {displayedImages.length} dari {filteredImages.length}{" "}
+              foto
+            </p>
+          </div>
         </div>
       </div>
 
