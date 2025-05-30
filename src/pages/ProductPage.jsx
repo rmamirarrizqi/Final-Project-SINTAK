@@ -156,13 +156,15 @@ function ProductHero() {
 }
 
 function ProductCatalog() {
-  const [activeCategory, setActiveCategory] = useState("paket");
+  const [activeCategory, setActiveCategory] = useState("semua");
   const [searchQuery, setSearchQuery] = useState("");
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [cartAnimation, setCartAnimation] = useState(false);
 
   const categories = [
+    { id: "semua", name: "Semua", icon: "🍽️" },
     { id: "paket", name: "Paket", icon: "📦" },
     { id: "satuan", name: "Satuan", icon: "🥟" },
     { id: "frozen", name: "Frozen", icon: "❄️" },
@@ -177,7 +179,7 @@ function ProductCatalog() {
           "4 dimsum small, 2 dimsum xl, 2 K-food medium, free chili oil",
         price: 20000,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/1ea6778f-047a-42f5-8487-b2f3cfcbbac6-fpngv6.webp",
         popular: true,
         category: "paket",
       },
@@ -187,7 +189,7 @@ function ProductCatalog() {
         description: "8 dimsum small, 2 K-food, free chili oil",
         price: 15000,
         image:
-          "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&h=300&fit=crop",
+          "https://utfs.io/f/15b88a93-a4c4-4c91-9757-55b5b4cf1cc2-fpngv5.webp",
         popular: false,
         category: "paket",
       },
@@ -197,7 +199,7 @@ function ProductCatalog() {
         description: "4 dimsum small, 2 dimsum xl, free chili oil",
         price: 11000,
         image:
-          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&h=300&fit=crop",
+          "https://utfs.io/f/f01a0246-0c27-4f4f-a959-f2b30fff76d4-fpngv4.webp",
         popular: false,
         category: "paket",
       },
@@ -207,7 +209,7 @@ function ProductCatalog() {
         description: "8 dimsum small",
         price: 10000,
         image:
-          "https://images.unsplash.com/photo-1576577445504-6af96477db52?w=400&h=300&fit=crop",
+          "https://utfs.io/f/4dd1526e-a668-4256-9177-4458dea669c9-fpngv3.webp",
         popular: false,
         category: "paket",
       },
@@ -219,7 +221,7 @@ function ProductCatalog() {
         description: "Dimsum dengan tekstur lembut dan rasa yang khas",
         price: 3500,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/a77c1abb-d124-4cab-afad-47503adfdc36-mvowhf.webp",
         popular: false,
         category: "satuan",
       },
@@ -229,7 +231,7 @@ function ProductCatalog() {
         description: "Dimsum dengan isian udang dan sayuran",
         price: 3500,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/a77c1abb-d124-4cab-afad-47503adfdc36-mvowhf.webp",
         popular: false,
         category: "satuan",
       },
@@ -239,7 +241,7 @@ function ProductCatalog() {
         description: "Dimsum ayam berbentuk rambutan dengan ukuran besar",
         price: 3000,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/95833657-ee62-405b-92c1-7a8763d570bc-v4gcae.webp",
         popular: true,
         category: "satuan",
       },
@@ -249,7 +251,7 @@ function ProductCatalog() {
         description: "Dimsum berbentuk bunga dengan ukuran besar",
         price: 3000,
         image:
-          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&h=300&fit=crop",
+          "https://utfs.io/f/cc83295d-c4f9-45ac-bd07-db07a27c1666-ltptwo.webp",
         popular: false,
         category: "satuan",
       },
@@ -259,7 +261,7 @@ function ProductCatalog() {
         description: "Dimsum dengan isian daging sapi asap ukuran besar",
         price: 3000,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/4403df02-70de-4e9c-8c3c-9b19cf3247df-spobt1.webp",
         popular: false,
         category: "satuan",
       },
@@ -269,7 +271,7 @@ function ProductCatalog() {
         description: "Dimsum dengan isian crab stick ukuran besar",
         price: 3000,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/6e60918b-28da-4637-8cca-cf998ab02f1b-5d2o7k.webp",
         popular: false,
         category: "satuan",
       },
@@ -279,7 +281,7 @@ function ProductCatalog() {
         description: "Dimsum dengan isian sosis ayam ukuran besar",
         price: 3000,
         image:
-          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&h=300&fit=crop",
+          "https://utfs.io/f/e9436dab-2edf-4c19-a784-467127cf7402-d624gd.webp",
         popular: false,
         category: "satuan",
       },
@@ -289,7 +291,7 @@ function ProductCatalog() {
         description: "Dimsum dengan isian jamur ukuran besar",
         price: 3000,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/54e2871b-fb1a-4940-83b8-6d4750000e8e-al4edz.webp",
         popular: false,
         category: "satuan",
       },
@@ -299,7 +301,7 @@ function ProductCatalog() {
         description: "Dimsum dengan topping wortel ukuran besar",
         price: 3000,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/f5e353ac-7a7e-41f0-b5a1-9e9a126e9b3c-aqepch.webp",
         popular: false,
         category: "satuan",
       },
@@ -309,7 +311,7 @@ function ProductCatalog() {
         description: "Dimsum original tanpa topping ukuran besar",
         price: 3000,
         image:
-          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&h=300&fit=crop",
+          "https://utfs.io/f/302d9a9b-6f02-4651-be12-ff798ba76ea3-or4918.webp",
         popular: false,
         category: "satuan",
       },
@@ -319,7 +321,7 @@ function ProductCatalog() {
         description: "Crab stick dengan tekstur kenyal dan rasa gurih",
         price: 2500,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/174ff327-afb9-44df-90f5-bdb5fa067b2c-ojssao.webp",
         popular: false,
         category: "satuan",
       },
@@ -329,7 +331,7 @@ function ProductCatalog() {
         description: "Scallop dengan cita rasa laut yang khas",
         price: 2500,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/20e6d7bd-7d67-4f2f-9a4d-5eaa85611cfe-vlp88i.webp",
         popular: false,
         category: "satuan",
       },
@@ -339,7 +341,7 @@ function ProductCatalog() {
         description: "Bakso dengan isian salmon premium",
         price: 2500,
         image:
-          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&h=300&fit=crop",
+          "https://utfs.io/f/b3d69e84-a018-4c15-beda-9e83fb0025f1-rxs1pp.webp",
         popular: false,
         category: "satuan",
       },
@@ -350,7 +352,7 @@ function ProductCatalog() {
           "Gulungan ikan dengan tekstur renyah di luar dan lembut di dalam",
         price: 2500,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/86ad2634-0981-4fb9-91b2-4e53d917d541-aeg4lh.webp",
         popular: false,
         category: "satuan",
       },
@@ -360,7 +362,7 @@ function ProductCatalog() {
         description: "Bola lobster dengan cita rasa seafood premium",
         price: 2500,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/5e7317f4-950f-4682-a782-8ba4efb6358e-pzwv2m.webp",
         popular: true,
         category: "satuan",
       },
@@ -370,7 +372,7 @@ function ProductCatalog() {
         description: "Dumpling dengan isian ayam yang juicy",
         price: 2500,
         image:
-          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&h=300&fit=crop",
+          "https://utfs.io/f/87cf9ebb-7bf9-405e-9c58-f4453659fb2a-ekr8n5.webp",
         popular: false,
         category: "satuan",
       },
@@ -380,7 +382,7 @@ function ProductCatalog() {
         description: "Dumpling dengan isian keju yang meleleh",
         price: 2500,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/2b438d91-6225-48b6-98fe-db52d8e2058d-43z74d.webp",
         popular: false,
         category: "satuan",
       },
@@ -390,7 +392,7 @@ function ProductCatalog() {
         description: "Kornet ayam dengan tekstur lembut dan rasa gurih",
         price: 1500,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/1e4bfbc5-e0c0-446c-b218-1bdd66ce4bfe-x4h579.webp",
         popular: false,
         category: "satuan",
       },
@@ -401,7 +403,7 @@ function ProductCatalog() {
           "Kembang cumi dengan tekstur kenyal dan rasa seafood yang khas",
         price: 1500,
         image:
-          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&h=300&fit=crop",
+          "https://utfs.io/f/a54a19d5-f8ed-4b14-9df4-692c1fc86a17-yflabh.webp",
         popular: false,
         category: "satuan",
       },
@@ -411,7 +413,7 @@ function ProductCatalog() {
         description: "Otak-otak ikan dengan bumbu rempah khas Indonesia",
         price: 1500,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/52ede732-14a8-4588-95a3-f77035fbec32-t9ei6c.webp",
         popular: false,
         category: "satuan",
       },
@@ -422,7 +424,7 @@ function ProductCatalog() {
           "Bola udang dengan tekstur kenyal dan rasa udang yang khas",
         price: 1500,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/f45ecab8-97af-4cd1-a07e-b5dabf36ade5-6b9d83.webp",
         popular: false,
         category: "satuan",
       },
@@ -432,7 +434,7 @@ function ProductCatalog() {
         description: "Bola ikan dengan tekstur kenyal dan rasa gurih",
         price: 1500,
         image:
-          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&h=300&fit=crop",
+          "https://utfs.io/f/86237404-0cc8-4b3d-b1b8-c74bce7704a1-ae5mfb.webp",
         popular: false,
         category: "satuan",
       },
@@ -442,7 +444,7 @@ function ProductCatalog() {
         description: "Chikuwa dengan tekstur kenyal dan rasa ikan yang khas",
         price: 1250,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/4aca9804-477f-4f1b-a87c-7949fdd1978b-ccav6g.webp",
         popular: false,
         category: "satuan",
       },
@@ -452,7 +454,7 @@ function ProductCatalog() {
         description: "Dimsum dengan topping wortel ukuran kecil",
         price: 1250,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/ff3bc0e6-c180-475a-8bf2-66d6e5500162-f3fvbc.webp",
         popular: false,
         category: "satuan",
       },
@@ -462,7 +464,7 @@ function ProductCatalog() {
         description: "Dimsum original tanpa topping ukuran kecil",
         price: 1250,
         image:
-          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&h=300&fit=crop",
+          "https://utfs.io/f/7052e1db-f27a-4954-adb5-aa5fe767709b-fkzjtf.webp",
         popular: false,
         category: "satuan",
       },
@@ -473,7 +475,7 @@ function ProductCatalog() {
           "Bakpao mini dengan varian cokelat, ayam, beef, atau strawberry",
         price: 1000,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/9d414073-bf83-4fec-a5ad-4bb9685cd022-gcafkr.webp",
         popular: true,
         category: "satuan",
       },
@@ -486,7 +488,7 @@ function ProductCatalog() {
           "Dimsum ayam premium berkualitas tinggi, praktis untuk dimasak di rumah. Isi 200pcs.",
         price: 390000,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/7fc8ff75-5a5e-4f83-b0db-c8bf64cf1013-tq2uy0.webp",
         popular: true,
         category: "frozen",
       },
@@ -497,7 +499,7 @@ function ProductCatalog() {
           "Dimsum ayam premium berkualitas tinggi, praktis untuk dimasak di rumah. Isi 100pcs.",
         price: 200000,
         image:
-          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&h=300&fit=crop",
+          "https://utfs.io/f/7fc8ff75-5a5e-4f83-b0db-c8bf64cf1013-tq2uy0.webp",
         popular: false,
         category: "frozen",
       },
@@ -508,7 +510,7 @@ function ProductCatalog() {
           "Dimsum ayam ori dan dimsum ayam wortel ukuran kecil. Isi 200pcs.",
         price: 190000,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/c363ebb2-7528-48ac-8aef-0f41e4e270e6-r09t1b.webp",
         popular: false,
         category: "frozen",
       },
@@ -519,7 +521,7 @@ function ProductCatalog() {
           "Dimsum ayam ori dan dimsum ayam wortel ukuran kecil. Isi 100pcs.",
         price: 100000,
         image:
-          "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop",
+          "https://utfs.io/f/c363ebb2-7528-48ac-8aef-0f41e4e270e6-r09t1b.webp",
         popular: false,
         category: "frozen",
       },
@@ -530,7 +532,7 @@ function ProductCatalog() {
           "Chili oil khas SumSkuy dengan rasa pedas yang nikmat. Berat 250 gram.",
         price: 35000,
         image:
-          "https://images.unsplash.com/photo-1625398407796-82650a8c9dd4?w=400&h=300&fit=crop",
+          "https://utfs.io/f/c17ff4e6-0af0-44e0-b66c-5754b9879e3d-1itygd.webp",
         popular: true,
         category: "frozen",
       },
@@ -538,7 +540,22 @@ function ProductCatalog() {
   };
 
   const filteredProducts = useMemo(() => {
-    if (!searchQuery) return products[activeCategory];
+    if (!searchQuery) {
+      if (activeCategory === "semua") {
+        // Combine all products when "Semua" is selected
+        return [...products.paket, ...products.satuan, ...products.frozen];
+      }
+      return products[activeCategory];
+    }
+
+    // If there's a search query, filter across all categories when "Semua" is selected
+    if (activeCategory === "semua") {
+      return [...products.paket, ...products.satuan, ...products.frozen].filter(
+        (product) =>
+          product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          product.description.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
 
     return products[activeCategory].filter(
       (product) =>
@@ -562,8 +579,9 @@ function ProductCatalog() {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
 
-    // Show cart after adding item
-    setShowCart(true);
+    // Trigger animation
+    setCartAnimation(true);
+    setTimeout(() => setCartAnimation(false), 1000);
   };
 
   const removeFromCart = (productId) => {
@@ -603,6 +621,20 @@ function ProductCatalog() {
 
   return (
     <section className="py-16 bg-gradient-to-br from-gray-50 to-amber-50 relative overflow-hidden">
+      <style jsx>{`
+        @keyframes bounce {
+          0%,
+          100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.5);
+          }
+        }
+        .animate-bounce {
+          animation: bounce 0.5s ease-in-out;
+        }
+      `}</style>
       <div className="container mx-auto px-6 relative z-10">
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -628,7 +660,9 @@ function ProductCatalog() {
         {/* Search and Filter */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
           <div className="text-2xl font-bold text-gray-800">
-            {activeCategory === "paket"
+            {activeCategory === "semua"
+              ? "Semua Menu"
+              : activeCategory === "paket"
               ? "Paket Hemat"
               : activeCategory === "satuan"
               ? "Menu Satuan"
@@ -665,10 +699,10 @@ function ProductCatalog() {
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="group bg-white/70 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                className="group bg-white/70 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 "
               >
                 {/* Image */}
-                <div className="relative overflow-hidden h-48">
+                <div className="relative overflow-hidden h-68 ">
                   <img
                     src={product.image || "/placeholder.svg"}
                     alt={product.name}
@@ -782,7 +816,11 @@ function ProductCatalog() {
               />
             </svg>
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-white text-red-500 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+              <span
+                className={`absolute -top-2 -right-2 bg-white text-red-500 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center ${
+                  cartAnimation ? "animate-bounce" : ""
+                }`}
+              >
                 {totalItems}
               </span>
             )}
