@@ -56,10 +56,7 @@ function GalleryHero() {
         ></div>
       </div>
 
-<<<<<<< HEAD
-=======
       {/* Mouse Follower */}
->>>>>>> 917734d71fdf7beb1b59a1cc053059af99b4870c
       <div
         className="fixed w-6 h-6 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full pointer-events-none z-30 opacity-50 transition-all duration-300 ease-out"
         style={{
@@ -289,17 +286,7 @@ function PhotoGallery() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-<<<<<<< HEAD
-            <svg
-              className="mt-2 w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <MdInsertPhoto />
-            </svg>
-=======
             <MdInsertPhoto className="w-5 h-5" />
->>>>>>> 917734d71fdf7beb1b59a1cc053059af99b4870c
             Photo Gallery
           </div>
 
@@ -392,12 +379,10 @@ function PhotoGallery() {
           ))}
         </div>
 
-<<<<<<< HEAD
         <div className="text-center mt-12">
           <button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg">
             Load More Photos
           </button>
-=======
         {/* Load More Button - hanya tampil jika masih ada gambar yang belum ditampilkan */}
         {visibleImages < filteredImages.length && (
           <div className="text-center mt-12">
@@ -416,7 +401,6 @@ function PhotoGallery() {
             Menampilkan {displayedImages.length} dari {filteredImages.length}{" "}
             foto
           </p>
->>>>>>> 917734d71fdf7beb1b59a1cc053059af99b4870c
         </div>
       </div>
 
