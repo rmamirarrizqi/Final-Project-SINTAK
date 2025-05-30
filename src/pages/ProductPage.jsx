@@ -42,7 +42,6 @@ function ProductHero() {
 
   return (
     <section className="relative min-h-[70vh] overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
-      {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-br from-amber-200/40 to-orange-300/40 rounded-full blur-3xl animate-pulse"></div>
         <div
@@ -55,7 +54,6 @@ function ProductHero() {
         ></div>
       </div>
 
-      {/* Mouse Follower */}
       <div
         className="fixed w-6 h-6 bg-gradient-to-br from-amber-400 to-red-500 rounded-full pointer-events-none z-30 opacity-50 transition-all duration-300 ease-out"
         style={{
@@ -65,10 +63,8 @@ function ProductHero() {
         }}
       ></div>
 
-      {/* Main Content */}
       <div className="container mx-auto px-6 pt-32 pb-12 h-full flex items-center relative z-10">
         <div className="text-center w-full">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-amber-200">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path
@@ -80,7 +76,6 @@ function ProductHero() {
             Menu Kami
           </div>
 
-          {/* Title */}
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-none">
             <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
               Kelezatan
@@ -102,7 +97,6 @@ function ProductHero() {
             <span className="font-semibold text-red-600">harga terjangkau</span>
           </p>
 
-          {/* Quick Stats */}
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             <div className="bg-white/60 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/30 shadow-md">
               <div className="flex items-center gap-2">
@@ -542,13 +536,11 @@ function ProductCatalog() {
   const filteredProducts = useMemo(() => {
     if (!searchQuery) {
       if (activeCategory === "semua") {
-        // Combine all products when "Semua" is selected
         return [...products.paket, ...products.satuan, ...products.frozen];
       }
       return products[activeCategory];
     }
 
-    // If there's a search query, filter across all categories when "Semua" is selected
     if (activeCategory === "semua") {
       return [...products.paket, ...products.satuan, ...products.frozen].filter(
         (product) =>
@@ -579,7 +571,6 @@ function ProductCatalog() {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
 
-    // Trigger animation
     setCartAnimation(true);
     setTimeout(() => setCartAnimation(false), 1000);
   };
@@ -636,7 +627,6 @@ function ProductCatalog() {
         }
       `}</style>
       <div className="container mx-auto px-6 relative z-10">
-        {/* Category Tabs */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
             <button
@@ -657,7 +647,6 @@ function ProductCatalog() {
           ))}
         </div>
 
-        {/* Search and Filter */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
           <div className="text-2xl font-bold text-gray-800">
             {activeCategory === "semua"
@@ -693,7 +682,6 @@ function ProductCatalog() {
           </div>
         </div>
 
-        {/* Products Grid */}
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (
@@ -701,7 +689,6 @@ function ProductCatalog() {
                 key={product.id}
                 className="group bg-white/70 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 "
               >
-                {/* Image */}
                 <div className="relative overflow-hidden h-68 ">
                   <img
                     src={product.image || "/placeholder.svg"}
@@ -710,7 +697,6 @@ function ProductCatalog() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
 
-                  {/* Popular Badge */}
                   {product.popular && (
                     <div className="absolute top-3 left-3">
                       <span className="px-3 py-1 bg-gradient-to-r from-amber-500 to-red-500 text-white text-xs font-bold rounded-full">
@@ -719,7 +705,6 @@ function ProductCatalog() {
                     </div>
                   )}
 
-                  {/* Quick View Button */}
                   <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <button
                       onClick={() => setSelectedProduct(product)}
@@ -748,7 +733,6 @@ function ProductCatalog() {
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">
                     {product.name}
@@ -796,7 +780,6 @@ function ProductCatalog() {
           </div>
         )}
 
-        {/* Floating Cart Button */}
         <button
           onClick={() => setShowCart(!showCart)}
           className="fixed bottom-8 right-8 z-40 bg-gradient-to-r from-amber-500 to-red-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
@@ -827,14 +810,12 @@ function ProductCatalog() {
           </div>
         </button>
 
-        {/* Cart Sidebar */}
         <div
           className={`fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
             showCart ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <div className="h-full flex flex-col">
-            {/* Cart Header */}
             <div className="bg-gradient-to-r from-amber-500 to-red-500 text-white p-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-xl font-bold flex items-center gap-2">
@@ -874,7 +855,6 @@ function ProductCatalog() {
               </div>
             </div>
 
-            {/* Cart Items */}
             <div className="flex-1 overflow-y-auto p-6">
               {cartItems.length > 0 ? (
                 <div className="space-y-6">
@@ -979,7 +959,6 @@ function ProductCatalog() {
               )}
             </div>
 
-            {/* Cart Footer */}
             {cartItems.length > 0 && (
               <div className="border-t border-gray-100 p-6 bg-gray-50">
                 <div className="flex justify-between mb-4">
@@ -1009,11 +988,9 @@ function ProductCatalog() {
           </div>
         </div>
 
-        {/* Product Detail Modal */}
         {selectedProduct && (
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div className="bg-white rounded-3xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col">
-              {/* Modal Header */}
               <div className="relative h-64">
                 <img
                   src={selectedProduct.image || "/placeholder.svg"}
@@ -1046,7 +1023,6 @@ function ProductCatalog() {
                 </div>
               </div>
 
-              {/* Modal Content */}
               <div className="p-6 flex-1 overflow-y-auto">
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-4">
@@ -1100,7 +1076,6 @@ function ProductCatalog() {
           </div>
         )}
 
-        {/* Overlay for Cart and Modal */}
         {(showCart || selectedProduct) && (
           <div
             className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"

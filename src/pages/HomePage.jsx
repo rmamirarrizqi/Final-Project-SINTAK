@@ -80,7 +80,6 @@ function Hero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
-      {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-br from-amber-200/40 to-orange-300/40 rounded-full blur-3xl animate-pulse"></div>
         <div
@@ -93,7 +92,6 @@ function Hero() {
         ></div>
       </div>
 
-      {/* Floating Dimsum Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {floatingElements.map((element) => (
           <div
@@ -116,7 +114,6 @@ function Hero() {
         ))}
       </div>
 
-      {/* Mouse Follower */}
       <div
         className="fixed w-6 h-6 bg-gradient-to-br from-amber-400 to-red-500 rounded-full pointer-events-none z-30 opacity-50 transition-all duration-300 ease-out"
         style={{
@@ -126,23 +123,18 @@ function Hero() {
         }}
       ></div>
 
-      {/* Main Content */}
       <div className="container mx-auto px-6 pt-32 pb-12 h-full flex items-center relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
-          {/* Left Side - Image */}
           <div className="relative order-2 lg:order-1">
             <div className="relative w-full max-w-lg mx-auto">
-              {/* Glassmorphism Container */}
               <div className="relative bg-white/20 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl">
                 <div className="relative w-full aspect-square">
-                  {/* Rotating Border */}
                   <div
                     className="absolute inset-0 bg-gradient-to-r from-amber-400 via-red-500 to-amber-400 rounded-full animate-spin"
                     style={{ animationDuration: "8s" }}
                   ></div>
                   <div className="absolute inset-2 bg-white rounded-full"></div>
 
-                  {/* Image Container */}
                   <div className="absolute inset-4 rounded-full overflow-hidden">
                     <img
                       src={images[currentImage] || "/placeholder.svg"}
@@ -152,7 +144,6 @@ function Hero() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   </div>
 
-                  {/* Floating Badges */}
                   <div className="absolute -top-4 -right-4 bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold py-3 px-6 rounded-full shadow-lg transform rotate-12 animate-bounce">
                     <svg
                       className="w-5 h-5 inline mr-2"
@@ -182,7 +173,6 @@ function Hero() {
                   </div>
                 </div>
 
-                {/* Stats */}
                 <div className="grid grid-cols-3 gap-4 mt-8">
                   <div className="text-center bg-white/30 backdrop-blur-sm rounded-xl p-3 border border-white/20">
                     <div className="text-2xl font-bold text-amber-600">
@@ -205,10 +195,8 @@ function Hero() {
             </div>
           </div>
 
-          {/* Right Side - Content */}
           <div className="order-1 lg:order-2">
             <div className="max-w-xl">
-              {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-amber-200">
                 <svg
                   className="w-4 h-4 text-red-500"
@@ -224,7 +212,6 @@ function Hero() {
                 Authentic Indonesian Dimsum
               </div>
 
-              {/* Animated Title */}
               <div className="mb-8">
                 <h1 className="text-6xl md:text-8xl font-black mb-4 leading-none">
                   {title.startsWith("Sum") && title.length > 3 ? (
@@ -257,7 +244,6 @@ function Hero() {
                 </p>
               </div>
 
-              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <button className="group relative bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl overflow-hidden">
                   <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
@@ -310,7 +296,6 @@ function Hero() {
                 </button>
               </div>
 
-              {/* Special Offer */}
               <div className="relative bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 p-1 rounded-2xl shadow-xl">
                 <div className="bg-white rounded-xl p-6">
                   <div className="flex items-center gap-4">
@@ -388,14 +373,12 @@ function OperatingHours() {
 
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-indigo-300/30 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-purple-200/30 to-pink-300/30 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <svg
@@ -436,7 +419,6 @@ function OperatingHours() {
 
         <div className="max-w-4xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Current Status Card */}
             <div className="lg:col-span-1">
               <div className="bg-white/60 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl h-full">
                 <div className="text-center">
@@ -482,7 +464,6 @@ function OperatingHours() {
               </div>
             </div>
 
-            {/* Operating Hours List */}
             <div className="lg:col-span-2">
               <div className="bg-white/60 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl overflow-hidden">
                 <div className="p-6 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
@@ -642,7 +623,6 @@ function ReviewsAndRatings() {
 
   return (
     <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 relative overflow-hidden">
-      {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-20 -left-20 w-96 h-96 bg-gradient-to-br from-purple-200/40 to-pink-300/40 rounded-full blur-3xl animate-pulse"></div>
         <div
@@ -650,7 +630,6 @@ function ReviewsAndRatings() {
           style={{ animationDelay: "2s" }}
         ></div>
 
-        {/* Floating Hearts */}
         {[...Array(8)].map((_, i) => (
           <div
             key={i}
@@ -674,7 +653,6 @@ function ReviewsAndRatings() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <svg
@@ -714,10 +692,8 @@ function ReviewsAndRatings() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Rating Summary - Enhanced */}
           <div className="lg:col-span-1">
             <div className="bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl h-full">
-              {/* Main Rating Display */}
               <div className="text-center mb-8">
                 <div className="relative mb-6">
                   <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-purple-100 via-pink-100 to-rose-100 flex items-center justify-center shadow-inner border-4 border-white relative overflow-hidden">
@@ -732,7 +708,6 @@ function ReviewsAndRatings() {
                   </div>
                 </div>
 
-                {/* Star Display */}
                 <div className="flex justify-center mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg
@@ -753,7 +728,6 @@ function ReviewsAndRatings() {
                 <p className="text-gray-600 font-medium">Excellent Rating</p>
               </div>
 
-              {/* Rating Distribution */}
               <div className="space-y-3 mb-8">
                 {ratingDistribution.map(({ star, count, percentage }) => (
                   <div key={star} className="flex items-center group">
@@ -782,7 +756,6 @@ function ReviewsAndRatings() {
                 ))}
               </div>
 
-              {/* Action Buttons */}
               <div className="space-y-3">
                 <button className="w-full bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
                   <svg
@@ -815,10 +788,8 @@ function ReviewsAndRatings() {
             </div>
           </div>
 
-          {/* Reviews List - Enhanced */}
           <div className="lg:col-span-2">
             <div className="bg-white/70 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl overflow-hidden">
-              {/* Header */}
               <div className="p-6 bg-gradient-to-r from-purple-500 to-pink-600 text-white">
                 <h3 className="text-2xl font-bold flex items-center gap-3">
                   <svg
@@ -836,7 +807,6 @@ function ReviewsAndRatings() {
                 </h3>
               </div>
 
-              {/* Reviews Container */}
               <div className="h-[600px] overflow-y-auto custom-scrollbar">
                 <div className="p-6 space-y-6">
                   {reviews.map((review, index) => (
@@ -849,7 +819,6 @@ function ReviewsAndRatings() {
                         } 100%)`,
                       }}
                     >
-                      {/* Review Header */}
                       <div className="flex items-start gap-4 mb-4">
                         <div className="relative">
                           <img
@@ -906,7 +875,6 @@ function ReviewsAndRatings() {
                           </div>
                         </div>
 
-                        {/* Rating */}
                         <div className="flex items-center gap-1">
                           {[...Array(5)].map((_, i) => (
                             <svg
@@ -925,14 +893,12 @@ function ReviewsAndRatings() {
                         </div>
                       </div>
 
-                      {/* Review Content */}
                       <div className="mb-4">
                         <p className="text-gray-700 leading-relaxed text-lg">
                           "{review.comment}"
                         </p>
                       </div>
 
-                      {/* Review Actions */}
                       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                         <button className="flex items-center gap-2 text-gray-500 hover:text-purple-600 transition-colors">
                           <svg
@@ -976,7 +942,6 @@ function ReviewsAndRatings() {
         </div>
       </div>
 
-      {/* Custom Scrollbar Styles */}
       <style jsx>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 8px;

@@ -44,7 +44,6 @@ function GalleryHero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-      {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-br from-indigo-200/40 to-purple-300/40 rounded-full blur-3xl animate-pulse"></div>
         <div
@@ -57,8 +56,6 @@ function GalleryHero() {
         ></div>
       </div>
 
-
-      {/* Mouse Follower */}
       <div
         className="fixed w-6 h-6 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full pointer-events-none z-30 opacity-50 transition-all duration-300 ease-out"
         style={{
@@ -68,18 +65,19 @@ function GalleryHero() {
         }}
       ></div>
 
-      {/* Main Content */}
       <div className="container mx-auto px-6 pt-32 pb-12 h-full flex items-center relative z-10">
         <div className="text-center w-full">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-indigo-200">
-            <svg className="mt-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-            <GrGallery/>
+            <svg
+              className="mt-2 w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <GrGallery />
             </svg>
             Visual Gallery
           </div>
 
-          {/* Title */}
           <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none">
             <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Gallery
@@ -99,7 +97,6 @@ function GalleryHero() {
             dimsum SumSkuy
           </p>
 
-          {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-6 border border-white/30 shadow-lg">
               <div className="text-3xl font-bold text-indigo-600 mb-2">
@@ -271,11 +268,14 @@ function PhotoGallery() {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <svg className="mt-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <MdInsertPhoto />
+            <svg
+              className="mt-2 w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <MdInsertPhoto />
             </svg>
             Photo Gallery
           </div>
@@ -300,7 +300,6 @@ function PhotoGallery() {
           </p>
         </div>
 
-        {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
             <button
@@ -318,7 +317,6 @@ function PhotoGallery() {
           ))}
         </div>
 
-        {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredImages.map((image, index) => (
             <div
@@ -334,7 +332,6 @@ function PhotoGallery() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                {/* Overlay Icons */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
                     <svg
@@ -353,7 +350,6 @@ function PhotoGallery() {
                   </div>
                 </div>
 
-                {/* Category Badge */}
                 <div className="absolute top-3 left-3">
                   <span className="px-3 py-1 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-xs font-bold rounded-full">
                     {categories.find((cat) => cat.id === image.category)?.label}
@@ -373,7 +369,6 @@ function PhotoGallery() {
           ))}
         </div>
 
-        {/* Load More Button */}
         <div className="text-center mt-12">
           <button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg">
             Load More Photos
@@ -381,11 +376,9 @@ function PhotoGallery() {
         </div>
       </div>
 
-      {/* Lightbox Modal */}
       {lightboxImage && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="relative max-w-4xl max-h-full">
-            {/* Close Button */}
             <button
               onClick={closeLightbox}
               className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
@@ -405,7 +398,6 @@ function PhotoGallery() {
               </svg>
             </button>
 
-            {/* Navigation Buttons */}
             <button
               onClick={prevImage}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-colors"
@@ -444,14 +436,11 @@ function PhotoGallery() {
               </svg>
             </button>
 
-            {/* Image */}
             <img
               src={lightboxImage.src || "/placeholder.svg"}
               alt={lightboxImage.title}
               className="max-w-full max-h-[80vh] object-contain rounded-lg"
             />
-
-            {/* Image Info */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent text-white p-6 rounded-b-lg">
               <h3 className="text-2xl font-bold mb-2">{lightboxImage.title}</h3>
               <p className="text-gray-200">{lightboxImage.description}</p>
@@ -476,7 +465,7 @@ function VideoSection() {
         "Lihat bagaimana chef kami membuat dimsum dengan teknik tradisional",
       duration: "3:45",
       category: "Behind the Scenes",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Example video URL
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
       id: 2,
@@ -513,11 +502,14 @@ function VideoSection() {
   return (
     <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <svg className="mt-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <FaVideo />
+            <svg
+              className="mt-2 w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <FaVideo />
             </svg>
             Video Gallery
           </div>
@@ -541,7 +533,6 @@ function VideoSection() {
           </p>
         </div>
 
-        {/* Video Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {videos.map((video) => (
             <div
@@ -556,7 +547,6 @@ function VideoSection() {
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 
-                {/* Play Button Overlay */}
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="bg-white/20 backdrop-blur-sm rounded-full p-6 transform group-hover:scale-110 transition-transform duration-300">
                     <svg
@@ -573,14 +563,12 @@ function VideoSection() {
                   </div>
                 </div>
 
-                {/* Duration Badge */}
                 <div className="absolute bottom-3 right-3">
                   <span className="px-2 py-1 bg-black/70 text-white text-xs font-bold rounded">
                     {video.duration}
                   </span>
                 </div>
 
-                {/* Category Badge */}
                 <div className="absolute top-3 left-3">
                   <span className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-600 text-white text-xs font-bold rounded-full">
                     {video.category}
@@ -601,11 +589,9 @@ function VideoSection() {
         </div>
       </div>
 
-      {/* Video Modal */}
       {selectedVideo && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="relative max-w-4xl w-full">
-            {/* Close Button */}
             <button
               onClick={() => setSelectedVideo(null)}
               className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
@@ -625,7 +611,6 @@ function VideoSection() {
               </svg>
             </button>
 
-            {/* Video Player */}
             <div className="bg-gray-900 rounded-lg overflow-hidden">
               <div className="aspect-video">
                 <iframe
@@ -671,8 +656,7 @@ function InstagramFeed() {
     },
     {
       id: 3,
-      image:
-        "/Gallery/DimsumEstetik.jpeg",
+      image: "/Gallery/DimsumEstetik.jpeg",
       likes: 312,
       comments: 25,
       caption: "Siomay ikan favorit pelanggan! Sudah coba belum? 🐟",
@@ -706,11 +690,14 @@ function InstagramFeed() {
   return (
     <section className="py-20 bg-gradient-to-br from-rose-50 via-orange-50 to-amber-50 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center bg-gradient-to-r from-rose-100 to-orange-100 text-rose-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <svg className="mt-3 w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-            <FaInstagram />
+            <svg
+              className="mt-3 w-7 h-7"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <FaInstagram />
             </svg>
             Instagram Feed
           </div>
@@ -739,14 +726,17 @@ function InstagramFeed() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
-            <svg className="mt-3 w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-            <FaInstagram />
+            <svg
+              className="mt-3 w-8 h-8"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <FaInstagram />
             </svg>
             Follow @sumskuy
           </a>
         </div>
 
-        {/* Instagram Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {instagramPosts.map((post) => (
             <div
@@ -759,8 +749,6 @@ function InstagramFeed() {
                   alt="Instagram post"
                   className="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-white text-center">
                     <div className="flex items-center justify-center gap-4 mb-2">

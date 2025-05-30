@@ -10,25 +10,21 @@ function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("/");
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
 
-    // Set active link based on current path
     setActiveLink(window.location.pathname);
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Toggle mobile menu
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Navigation links data
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About Us" },
@@ -47,7 +43,6 @@ function NavBar() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Link
             to="/"
             className="flex items-center gap-2 group"
@@ -69,7 +64,6 @@ function NavBar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center">
             <ul className="flex space-x-1">
               {navLinks.map((link) => (
@@ -90,14 +84,11 @@ function NavBar() {
             </ul>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex items-center gap-3">
-            {/* Order Button */}
             <button className="hidden md:flex bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-600 hover:to-red-600 text-white px-5 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
               Order Now
             </button>
 
-            {/* Mobile Menu Button */}
             <button
               className="lg:hidden p-2 rounded-lg bg-gradient-to-r from-amber-100 to-red-100 text-amber-700"
               onClick={toggleMobileMenu}
@@ -124,7 +115,6 @@ function NavBar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
             mobileMenuOpen

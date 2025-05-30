@@ -41,10 +41,8 @@ function NotFoundHero() {
   const handleSearch = (e) => {
     e.preventDefault();
     setIsSearching(true);
-    // Simulate search
     setTimeout(() => {
       setIsSearching(false);
-      // Redirect to search results or show suggestions
     }, 2000);
   };
 
@@ -96,7 +94,6 @@ function NotFoundHero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-red-50 via-orange-50 to-amber-50">
-      {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-br from-red-200/40 to-orange-300/40 rounded-full blur-3xl animate-pulse"></div>
         <div
@@ -109,7 +106,6 @@ function NotFoundHero() {
         ></div>
       </div>
 
-      {/* Floating Food Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {floatingElements.map((element) => (
           <div
@@ -128,7 +124,6 @@ function NotFoundHero() {
         ))}
       </div>
 
-      {/* Mouse Follower */}
       <div
         className="fixed w-8 h-8 bg-gradient-to-br from-red-400 to-orange-500 rounded-full pointer-events-none z-30 opacity-50 transition-all duration-300 ease-out"
         style={{
@@ -138,10 +133,8 @@ function NotFoundHero() {
         }}
       ></div>
 
-      {/* Main Content */}
       <div className="container mx-auto px-6 pt-32 pb-12 h-full flex items-center relative z-10">
         <div className="text-center w-full">
-          {/* 404 Number with Animation */}
           <div className="relative mb-8">
             <h1 className="text-[200px] md:text-[300px] font-black leading-none opacity-10 text-gray-400 select-none">
               404
@@ -151,7 +144,6 @@ function NotFoundHero() {
             </div>
           </div>
 
-          {/* Error Message */}
           <div className="mb-8">
             <h2 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
               <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
@@ -175,7 +167,6 @@ function NotFoundHero() {
             </p>
           </div>
 
-          {/* Search Bar */}
           <div className="max-w-2xl mx-auto mb-12">
             <form onSubmit={handleSearch} className="relative">
               <div className="relative bg-white/80 backdrop-blur-xl rounded-2xl shadow-lg border border-white/30 overflow-hidden">
@@ -213,7 +204,6 @@ function NotFoundHero() {
             </form>
           </div>
 
-          {/* Quick Actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link
               to="/"
@@ -269,7 +259,6 @@ function NotFoundHero() {
             </Link>
           </div>
 
-          {/* Popular Pages Grid */}
           <div className="max-w-6xl mx-auto mb-16">
             <h3 className="text-3xl font-bold text-gray-800 mb-8">
               Halaman Populer
@@ -293,7 +282,6 @@ function NotFoundHero() {
             </div>
           </div>
 
-          {/* Fun Facts Section */}
           <div className="bg-white/60 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-lg max-w-4xl mx-auto mb-12">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
               💡 Tahukah Anda?{" "}
@@ -311,7 +299,6 @@ function NotFoundHero() {
             </div>
           </div>
 
-          {/* Help Section */}
           <div className="bg-gradient-to-r from-red-500 to-orange-600 rounded-3xl p-8 text-white max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">Butuh Bantuan? 🤝</h3>
             <p className="text-lg mb-6 opacity-90">

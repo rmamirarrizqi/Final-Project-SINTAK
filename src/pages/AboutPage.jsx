@@ -22,7 +22,6 @@ function AboutPage() {
       <AboutHero />
       <OurStory />
       <OurValues />
-      <TeamSection />
       <AwardsSection />
       <LocationsSection />
       <Footer />
@@ -71,7 +70,6 @@ function AboutHero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
-      {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-br from-amber-200/40 to-orange-300/40 rounded-full blur-3xl animate-pulse"></div>
         <div
@@ -84,7 +82,6 @@ function AboutHero() {
         ></div>
       </div>
 
-      {/* Mouse Follower */}
       <div
         className="fixed w-6 h-6 bg-gradient-to-br from-amber-400 to-red-500 rounded-full pointer-events-none z-30 opacity-50 transition-all duration-300 ease-out"
         style={{
@@ -94,13 +91,10 @@ function AboutHero() {
         }}
       ></div>
 
-      {/* Main Content */}
       <div className="container mx-auto px-6 pt-32 pb-12 pr-30 pl-30 h-full flex items-center relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
-          {/* Left Side - Content */}
           <div className="order-2 lg:order-1">
             <div className="max-w-xl">
-              {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-amber-200">
                 <svg
                   className="w-4 h-4"
@@ -116,7 +110,6 @@ function AboutHero() {
                 Tentang Kami
               </div>
 
-              {/* Title */}
               <h1 className="text-5xl md:text-7xl font-black mb-6 leading-none">
                 <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
                   Cerita
@@ -142,7 +135,6 @@ function AboutHero() {
                 yang tak terlupakan.
               </p>
 
-              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link
                   to="/product"
@@ -200,10 +192,8 @@ function AboutHero() {
             </div>
           </div>
 
-          {/* Right Side - Stats */}
           <div className="order-1 lg:order-2">
             <div className="relative w-full max-w-lg mx-auto">
-              {/* Main Stats Display */}
               <div className="bg-white/60 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl">
                 <div className="text-center mb-8">
                   <div className="text-6xl mb-4 animate-bounce">
@@ -217,7 +207,6 @@ function AboutHero() {
                   </div>
                 </div>
 
-                {/* Stats Grid */}
                 <div className="grid grid-cols-2 gap-4">
                   {stats.map((stat, index) => (
                     <div
@@ -238,7 +227,6 @@ function AboutHero() {
                   ))}
                 </div>
 
-                {/* Progress Indicator */}
                 <div className="flex justify-center gap-2 mt-6">
                   {stats.map((_, index) => (
                     <div
@@ -320,7 +308,6 @@ function OurStory() {
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -353,13 +340,9 @@ function OurStory() {
           </p>
         </div>
 
-        {/* Timeline */}
         <div className="max-w-6xl mx-auto">
           <div className="relative">
-            {/* Timeline Line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-200 to-purple-300 rounded-full"></div>
-
-            {/* Timeline Items */}
             <div className="space-y-12">
               {timeline.map((item, index) => (
                 <div
@@ -368,7 +351,6 @@ function OurStory() {
                     index % 2 === 0 ? "justify-start" : "justify-end"
                   }`}
                 >
-                  {/* Timeline Node */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
                     <div
                       className={`w-16 h-16 rounded-full bg-gradient-to-r ${
@@ -382,7 +364,6 @@ function OurStory() {
                     </div>
                   </div>
 
-                  {/* Content Card */}
                   <div
                     className={`w-5/12 ${
                       index % 2 === 0 ? "mr-auto pr-8" : "ml-auto pl-8"
@@ -458,7 +439,6 @@ function OurValues() {
   return (
     <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -469,10 +449,10 @@ function OurValues() {
 
           <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
             Yang Kami
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Junjung
-            </span>
             <br />
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Junjung&nbsp;
+            </span>
             <span className="bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">
               Tinggi
             </span>
@@ -486,14 +466,12 @@ function OurValues() {
           </p>
         </div>
 
-        {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, index) => (
             <div
               key={index}
               className="group bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 text-center"
             >
-              {/* Icon */}
               <div className="relative mb-6">
                 <div
                   className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-r ${value.color} flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}
@@ -504,165 +482,15 @@ function OurValues() {
                   className={`absolute inset-0 w-20 h-20 mx-auto rounded-full bg-gradient-to-r ${value.color} opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-300`}
                 ></div>
               </div>
-
-              {/* Content */}
               <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-purple-700 transition-colors">
                 {value.title}
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 {value.description}
               </p>
-
-              {/* Decorative Element */}
               <div
                 className={`w-16 h-1 bg-gradient-to-r ${value.color} mx-auto mt-6 rounded-full group-hover:w-24 transition-all duration-300`}
               ></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function TeamSection() {
-  const team = [
-    {
-      name: "Chef William Tanoto",
-      position: "Head Chef & Founder",
-      image:
-        "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=300&h=300&fit=crop&crop=face",
-      description:
-        "15+ tahun pengalaman di kuliner Asia dengan spesialisasi dimsum tradisional",
-      social: { instagram: "#", linkedin: "#" },
-    },
-    {
-      name: "Sarah Lim",
-      position: "Operations Manager",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
-      description:
-        "Memastikan kualitas dan konsistensi di setiap cabang SumSkuy",
-      social: { instagram: "#", linkedin: "#" },
-    },
-    {
-      name: "David Chen",
-      position: "Marketing Director",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      description:
-        "Mengembangkan brand SumSkuy dan membangun hubungan dengan pelanggan",
-      social: { instagram: "#", linkedin: "#" },
-    },
-    {
-      name: "Lisa Wong",
-      position: "Quality Control",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-      description:
-        "Menjaga standar kualitas tinggi dalam setiap proses produksi",
-      social: { instagram: "#", linkedin: "#" },
-    },
-  ];
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-blue-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
-              />
-            </svg>
-            Tim Kami
-          </div>
-
-          <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
-            Orang-Orang
-            <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
-              Hebat
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              Di Balik SumSkuy
-            </span>
-          </h2>
-
-          <div className="w-32 h-2 bg-gradient-to-r from-indigo-400 via-blue-500 to-cyan-500 mx-auto mb-6 rounded-full"></div>
-
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Tim profesional yang berdedikasi menghadirkan pengalaman kuliner
-            terbaik dengan passion dan keahlian tinggi
-          </p>
-        </div>
-
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, index) => (
-            <div
-              key={index}
-              className="group bg-white/70 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4"
-            >
-              {/* Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={member.image || "/placeholder.svg"}
-                  alt={member.name}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                {/* Social Links */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={member.social.instagram}
-                    className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
-                  </a>
-                  <a
-                    href={member.social.linkedin}
-                    className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-indigo-600 transition-colors">
-                  {member.name}
-                </h3>
-                <p className="text-indigo-600 font-semibold mb-3">
-                  {member.position}
-                </p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {member.description}
-                </p>
-              </div>
             </div>
           ))}
         </div>
@@ -706,7 +534,6 @@ function AwardsSection() {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-slate-100 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-100 to-slate-100 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -730,19 +557,15 @@ function AwardsSection() {
           </p>
         </div>
 
-        {/* Awards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {awards.map((award, index) => (
             <div
               key={index}
               className="group bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 text-center"
             >
-              {/* Year Badge */}
               <div className="inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-bold mb-6">
                 {award.year}
               </div>
-
-              {/* Icon */}
               <div className="relative mb-6">
                 <div
                   className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-r ${award.color} flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}
@@ -753,16 +576,12 @@ function AwardsSection() {
                   className={`absolute inset-0 w-20 h-20 mx-auto rounded-full bg-gradient-to-r ${award.color} opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-300`}
                 ></div>
               </div>
-
-              {/* Content */}
               <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
                 {award.title}
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 {award.organization}
               </p>
-
-              {/* Decorative Element */}
               <div
                 className={`w-16 h-1 bg-gradient-to-r ${award.color} mx-auto mt-6 rounded-full group-hover:w-24 transition-all duration-300`}
               ></div>
@@ -826,7 +645,6 @@ function LocationsSection() {
   return (
     <section className="py-20 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -858,14 +676,12 @@ function LocationsSection() {
           </p>
         </div>
 
-        {/* Locations Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {locations.map((location, index) => (
             <div
               key={index}
               className="group bg-white/70 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4"
             >
-              {/* Image */}
               <div className="relative overflow-hidden">
                 <img
                   src={location.image || "/placeholder.svg"}
@@ -874,7 +690,6 @@ function LocationsSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
 
-                {/* Status Badge */}
                 <div className="absolute top-4 right-4">
                   {location.status === "open" ? (
                     <span className="px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">
@@ -887,7 +702,6 @@ function LocationsSection() {
                   )}
                 </div>
 
-                {/* Location Icon */}
                 <div className="absolute bottom-4 left-4">
                   <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white">
                     <svg
@@ -905,7 +719,6 @@ function LocationsSection() {
                 </div>
               </div>
 
-              {/* Content */}
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">
                   {location.name}
@@ -962,7 +775,6 @@ function LocationsSection() {
                   </div>
                 </div>
 
-                {/* Action Buttons */}
                 <div className="flex gap-2">
                   <button className="flex-1 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 text-sm">
                     Directions
