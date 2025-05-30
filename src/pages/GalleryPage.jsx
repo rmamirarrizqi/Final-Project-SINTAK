@@ -56,6 +56,10 @@ function GalleryHero() {
         ></div>
       </div>
 
+<<<<<<< HEAD
+=======
+      {/* Mouse Follower */}
+>>>>>>> 917734d71fdf7beb1b59a1cc053059af99b4870c
       <div
         className="fixed w-6 h-6 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full pointer-events-none z-30 opacity-50 transition-all duration-300 ease-out"
         style={{
@@ -139,6 +143,7 @@ function PhotoGallery() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [lightboxImage, setLightboxImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [visibleImages, setVisibleImages] = useState(4); // State untuk mengontrol jumlah gambar yang ditampilkan
 
   const categories = [
     { id: "all", label: "Semua", icon: "🖼️" },
@@ -204,7 +209,7 @@ function PhotoGallery() {
       src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=600&fit=crop",
       category: "process",
       title: "Steam Process",
-      description: "Proses pengukusan dimsum den`gan steam tradisional",
+      description: "Proses pengukusan dimsum dengan steam tradisional",
     },
     {
       id: 9,
@@ -241,6 +246,20 @@ function PhotoGallery() {
       ? galleryImages
       : galleryImages.filter((img) => img.category === selectedCategory);
 
+  // Gambar yang akan ditampilkan berdasarkan visibleImages
+  const displayedImages = filteredImages.slice(0, visibleImages);
+
+  // Function untuk load more images
+  const loadMoreImages = () => {
+    setVisibleImages((prev) => Math.min(prev + 4, filteredImages.length));
+  };
+
+  // Reset visible images ketika kategori berubah
+  const handleCategoryChange = (categoryId) => {
+    setSelectedCategory(categoryId);
+    setVisibleImages(4); // Reset ke 4 gambar pertama
+  };
+
   const openLightbox = (image, index) => {
     setLightboxImage(image);
     setCurrentImageIndex(index);
@@ -270,6 +289,7 @@ function PhotoGallery() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+<<<<<<< HEAD
             <svg
               className="mt-2 w-5 h-5"
               fill="currentColor"
@@ -277,6 +297,9 @@ function PhotoGallery() {
             >
               <MdInsertPhoto />
             </svg>
+=======
+            <MdInsertPhoto className="w-5 h-5" />
+>>>>>>> 917734d71fdf7beb1b59a1cc053059af99b4870c
             Photo Gallery
           </div>
 
@@ -304,7 +327,7 @@ function PhotoGallery() {
           {categories.map((category) => (
             <button
               key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
+              onClick={() => handleCategoryChange(category.id)}
               className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                 selectedCategory === category.id
                   ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg"
@@ -318,7 +341,7 @@ function PhotoGallery() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredImages.map((image, index) => (
+          {displayedImages.map((image, index) => (
             <div
               key={image.id}
               className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
@@ -369,10 +392,31 @@ function PhotoGallery() {
           ))}
         </div>
 
+<<<<<<< HEAD
         <div className="text-center mt-12">
           <button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg">
             Load More Photos
           </button>
+=======
+        {/* Load More Button - hanya tampil jika masih ada gambar yang belum ditampilkan */}
+        {visibleImages < filteredImages.length && (
+          <div className="text-center mt-12">
+            <button
+              onClick={loadMoreImages}
+              className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Load More Photos
+            </button>
+          </div>
+        )}
+
+        {/* Info jumlah gambar yang ditampilkan */}
+        <div className="text-center mt-6">
+          <p className="text-gray-500 text-sm">
+            Menampilkan {displayedImages.length} dari {filteredImages.length}{" "}
+            foto
+          </p>
+>>>>>>> 917734d71fdf7beb1b59a1cc053059af99b4870c
         </div>
       </div>
 
