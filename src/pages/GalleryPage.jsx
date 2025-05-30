@@ -56,7 +56,6 @@ function GalleryHero() {
         ></div>
       </div>
 
-      {/* Mouse Follower */}
       <div
         className="fixed w-6 h-6 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full pointer-events-none z-30 opacity-50 transition-all duration-300 ease-out"
         style={{
@@ -140,7 +139,7 @@ function PhotoGallery() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [lightboxImage, setLightboxImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [visibleImages, setVisibleImages] = useState(4); // State untuk mengontrol jumlah gambar yang ditampilkan
+  const [visibleImages, setVisibleImages] = useState(4);
 
   const categories = [
     { id: "all", label: "Semua", icon: "🖼️" },
@@ -243,18 +242,15 @@ function PhotoGallery() {
       ? galleryImages
       : galleryImages.filter((img) => img.category === selectedCategory);
 
-  // Gambar yang akan ditampilkan berdasarkan visibleImages
   const displayedImages = filteredImages.slice(0, visibleImages);
 
-  // Function untuk load more images
   const loadMoreImages = () => {
     setVisibleImages((prev) => Math.min(prev + 4, filteredImages.length));
   };
 
-  // Reset visible images ketika kategori berubah
   const handleCategoryChange = (categoryId) => {
     setSelectedCategory(categoryId);
-    setVisibleImages(4); // Reset ke 4 gambar pertama
+    setVisibleImages(4);
   };
 
   const openLightbox = (image, index) => {
@@ -380,10 +376,6 @@ function PhotoGallery() {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-            Load More Photos
-          </button>
-          {/* Load More Button - hanya tampil jika masih ada gambar yang belum ditampilkan */}
           {visibleImages < filteredImages.length && (
             <div className="text-center mt-12">
               <button
@@ -395,7 +387,6 @@ function PhotoGallery() {
             </div>
           )}
 
-          {/* Info jumlah gambar yang ditampilkan */}
           <div className="text-center mt-6">
             <p className="text-gray-500 text-sm">
               Menampilkan {displayedImages.length} dari {filteredImages.length}{" "}
